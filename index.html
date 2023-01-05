@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="static/css/index.css" />
+
+    <script src="static/scripts/JQuery.js"></script>
+    <script src="static/scripts/my_js.js"></script>
+
+    <title>My Profile</title>
+  </head>
+  <body>
+    <div class="container-fluid"></div>
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark navbar-custom">
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand">
+          <img id="logo" src="static/images/logo.png" alt="undefined"
+        /></a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a id="aboutMe_link" href="#about_me" class="about nav-link">
+                About Me
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a id="education_link" href="#education" class="nav-link">
+                Education
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a id="projects" href="#projects" class="nav-link"> Projects </a>
+            </li>
+
+            <li class="nav-item">
+              <a id="reference_link" href="#References" class="nav-link">
+                References</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="summary1" class="row">
+      <div id="main_art1" class="col col-12 col-md-6 col-lg-5 col-xl-4">
+        <div class="main_art">
+          <img
+            id="front_art"
+            src="static/images/art_1.png"
+            alt="Front Page Art"
+            class="center"
+          />
+        </div>
+      </div>
+      <div class="col col-12 col-md-6 col-lg-7 col-xl-8">
+        <div class="container-fluid">
+          <div id="career_div" class="summary">
+            <h3>Career summary</h3>
+            <p>
+              Welcome and thank you for veiwing my career portfolio. I wish I
+              could tell you I've got extansive experiance as a full stack wab
+              developer and I'm the best in the business. Yeah, that would be a
+              lie, What is not a lie however is that I am still very early in my
+              career as a software and web developer, on the verge of completing
+              my university training and in need of inservice training. For what
+              it's worth, I have some experiance in software and web application
+              development obtained working on various school and personal
+              projects.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr id="educa_rul" class="ruler_line" />
+    </div>
+    <div class="row education-top">
+      <div class="container-fluid">
+        <h2 id="education_div" class="education">Education</h2>
+        <div class="col col-md-8 col-lg-8 col-xl-8">
+          <div class="row">
+            <div class="col col-md-4 col-lg-4 col-xl-4">
+              <b class="education">2016 - 2018</b>
+            </div>
+            <div class="col col-md-8 col-lg-8 col-xl-8">
+              <ul class="edu_list">
+                <li><b>Institution: </b> Durban University of Technology</li>
+                <li><b>Qualification: </b> Diploma in Busiess application</li>
+                <li><b>Status: </b> Not Completed</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-md-4 col-lg-4 col-xl-4">
+              <b class="education">2019 - current</b>
+            </div>
+            <div id="edu_list_div" class="col col-md-8 col-lg-8 col-xl-8">
+              <ul class="edu_list">
+                <li>
+                  <b>Institution: </b> Mangosuthu University of Technology
+                </li>
+                <li>
+                  <b>Qualification: </b> Diploma in Information Communication
+                  Technology
+                </li>
+                <li><b>Status: </b> 3rd year</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-4 col-lg-4 col-xl-4"><p></p></div>
+      </div>
+    </div>
+    <hr class="ruler_line" />
+    <div class="row project">
+      <div id="projects_div" class="container-fluid">
+        <h2 class="education proj-header">Projects</h2>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col col-12 col-md-5 col-lg-5 col-xl-5">
+            <b class="education proj-year">The Blackboard Project.</b>
+            <p class="year-one education">
+              <i
+                >Here you need to add stuff about the project, what were you
+                aiming to create in the project. The language that was used in
+                the project anf the skills you acquired after working on this
+                project.
+              </i>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
+              velit doloribus illo. Rerum et, molestiae temporibus doloribus
+              delectus facilis, assumenda blanditiis eveniet magnam, ratione
+              placeat. Quibusdam dolorum vel id officia.
+            </p>
+          </div>
+          <div class="col col-12 col-md-7 col-lg-7 col xl-7">
+            <video
+              class="video"
+              id="video_y1"
+              width="390"
+              height="auto"
+              controls
+            >
+              <source src="static/videos/BlackBoardFull.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <hr class="ruler_line" />
+        <div class="row">
+          <div class="col col-12 col-md-5 col-lg-5 col-xl-5">
+            <b class="education proj-year">Resturant management software.</b>
+            <p class="year-one education">
+              <i
+                >Here you need to add stuff about the project, what were you
+                aiming to create in the project. The language that was used in
+                the project anf the skills you acquired after working on this
+                project.
+              </i>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
+              velit doloribus illo. Rerum et, molestiae temporibus doloribus
+              delectus facilis, assumenda blanditiis eveniet magnam, ratione
+              placeat. Quibusdam dolorum vel id officia.
+            </p>
+          </div>
+          <div class="col col-12 col-md-7 col-lg-7 col xl-7">
+            <video
+              class="video"
+              id="video_y1"
+              width="390"
+              height="auto"
+              controls
+            >
+              <source src="static/videos/kfc_pos.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <hr class="ruler_line" />
+        <div class="row">
+          <div class="col col-12 col-md-5 col-lg-5 col-xl-5">
+            <b class="education proj-year">Dice roll game.</b>
+            <p class="year-one education">
+              <i
+                >Here you need to add stuff about the project, what were you
+                aiming to create in the project. The language that was used in
+                the project anf the skills you acquired after working on this
+                project.
+              </i>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
+              velit doloribus illo. Rerum et, molestiae temporibus doloribus
+              delectus facilis, assumenda blanditiis eveniet magnam, ratione
+              placeat. Quibusdam dolorum vel id officia.
+            </p>
+          </div>
+          <div class="col col-12 col-md-7 col-lg-7 col xl-7">
+            <video
+              class="video"
+              id="video_y1"
+              width="390"
+              height="auto"
+              controls
+            >
+              <source src="static/videos/game.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr id="about_ruler" class="ruler_line" />
+    <div class="row about_me">
+      <div class="container-fluid">
+        <div class="education">
+          <h3 id="about_meh" class="education">About Me</h3>
+          <div class="row">
+            <div class="col col-12 col-md-5 col-lg-5 col-xl-5">
+              <img
+                id="aboutMeImg"
+                class="education"
+                src="static/images/me.png"
+                alt="My Picture"
+              />
+            </div>
+            <div class="col col-12 col-md-7 col-lg-7 col-xl-7">
+              <p id="" class="education about_p">
+                Siphelele A. Maphumulo is a 3<sup>rd</sup> year student at
+                Mangosuthu University of Technology registered for a Diploma in
+                Information Communication Technology. My interest is in software
+                and web applications development.
+                <span style="color: red">
+                  ... continue here the text bellow is a place holder</span
+                >
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                pariatur repellat, numquam officiis suscipit doloribus eius.
+                Quam magnam, suscipit dolor alias hic, cum sapiente non odio
+                pariatur repellendus amet natus.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <h6 id="skill1" class="aboutMe_tags">
+              Programming skills and Experiance
+            </h6>
+            <div class="row">
+              <div
+                id="p_skill_con1"
+                class="col col-12 col-md-4 col-lg-4 col-xl-4"
+              >
+                <div id="skill_cont1" class="card">
+                  <div class="card-body">
+                    <h6 class="skill_tabs_ab">Proficient</h6>
+                    <p>
+                      This is the list of languages and technologies that I am
+                      confident working with.
+                    </p>
+                    <ul>
+                      <li>Java</li>
+                      <li>Python</li>
+                      <li>C#</li>
+                      <li>PhP</li>
+                      <li>HTML_5</li>
+                      <li>CSS/ Bootstrap 5/ W3.CSS</li>
+                      <li>Vanilla.js/ JQuery</li>
+                      <li>SQL</li>
+                      <li>Visual Studio/ VS Code/ ATOM</li>
+                      <li>NetBeans</li>
+                      <li>MYSQL</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-12 col-md-4 col-lg-4 col-xl-4">
+                <div id="skill_cont2" class="card">
+                  <div class="card-body">
+                    <h6 class="skill_tabs_ab">Basic Knowledge</h6>
+                    <p>
+                      This is the list of languages and technologies that I
+                      unofficially worked with through online tutorials and side
+                      projects.
+                    </p>
+                    <ul>
+                      <li>Flask/ Fast API/ SQLAlchemy ORM</li>
+                      <li>Angular/ TypeScript/ Node.js</li>
+                      <li>GitHub/ Heroku/ Docker</li>
+                      <li>Ubuntu Server/ XAMPP Apache</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-12 col-md-4 col-lg-4 col-xl-4">
+                <div id="skill_cont3" class="card">
+                  <div class="card-body">
+                    <h6 class="skill_tabs_ab">Premature Knowledge</h6>
+                    <p>
+                      This is the list of languages and technologies that I
+                      would like to learn in the near future.
+                    </p>
+                    <ul>
+                      <li>React.js</li>
+                      <li>Next.js</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center text-light">
+      <section class="d-flex justify-content-between p-4" id="section1">
+        <div class="container text-center text-md-start mt-4">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">
+                <i class="fa fa-user mr-3"></i> &nbsp Siphelele A. Maphumulo
+              </h6>
+              <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 90px; background-color: #7c4dff; height: 2px"
+              />
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+              />
+              <p>
+                <i class="fa fa-home mr-3"></i> S210 Umlazi, 4061, South Africa
+              </p>
+              <p><i class="fa fa-envelope mr-3"></i> info@example.com</p>
+              <p><i class="fa fa-phone mr-3"></i> +27 234 444 222</p>
+            </div>
+            <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">References</h6>
+              <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+              />
+              <p>
+                <i class="fa fa-user-secret fa-2x"></i> To protect personal
+                information, References are available on request.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div id="copyright" class="text-center">
+        © <i>2020 Created by: Siphelele Audicious Maphumulo</i>
+      </div>
+    </footer>
+  </body>
+</html>

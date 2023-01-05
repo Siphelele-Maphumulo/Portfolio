@@ -1,0 +1,156 @@
+#logo {
+  height: 50px;
+  width: auto;
+  margin-left: 0.5cm;
+}
+
+.navbar {
+  background-color: #494747;
+}
+
+.navbar-dark .nav-item.active .nav-link,
+.navbar-dark .nav-item .nav-link:active,
+.navbar-dark .nav-item .nav-link:focus,
+.navbar-dark .nav-item:hover .nav-link {
+  color: #7cdfd3;
+}
+
+#front_art {
+  width: auto;
+  height: auto;
+  max-width: 375px;
+}
+
+#aboutMeImg {
+  width: auto;
+  height: auto;
+  max-width: 380px;
+}
+
+.main_art {
+  padding: 0px;
+  position: relative;
+  background-color: #111111;
+}
+
+#main_art1 {
+  background-color: #111111;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.summary {
+  text-align: justify;
+}
+
+#summary1 {
+  padding: 0px;
+  margin-top: 76px;
+}
+hr {
+  margin-top: 0mm;
+  border-top: none solid;
+  background-color: #494747;
+}
+
+.education {
+  padding-left: 12px;
+}
+.edu_list {
+  list-style-type: none;
+}
+.education-top {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.project {
+  background-color: #e6e6e6;
+  margin-top: -5mm;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.proj-header {
+  color: #363738;
+  border: black;
+}
+.proj-year {
+  text-decoration: underline;
+}
+p {
+  text-align: justify;
+}
+
+.about_me {
+  background-color: #585858;
+  margin-top: -4mm;
+}
+
+#about_meh {
+  color: #7cdfd3;
+  padding-top: 64px;
+  padding-bottom: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.about_p {
+  color: azure;
+  padding: 24px;
+}
+
+#skill1 {
+  padding-top: 32px;
+  padding-left: 24px;
+  padding-bottom: 16px;
+}
+
+.aboutMe_tags {
+  color: #7cdfd3;
+}
+#skill_cont1 {
+  border: #bdbdbd;
+  background-color: whitesmoke;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+#skill_cont2 {
+  border: #bdbdbd;
+  background-color: rgb(170, 204, 206);
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+#skill_cont3 {
+  border: #bdbdbd;
+  background-color: rgb(206, 170, 170);
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+#ruler_line1 {
+  border-top: #111111 solid;
+  border-top: 12px;
+  background-color: #111111;
+}
+
+.skill_tabs_ab {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: decimal;
+}
+footer {
+  background-color: #f6f6f6;
+}
+#section1 {
+  background-color: #111111;
+}
+#copyright {
+  background-color: #494747;
+  padding: 48px;
+}
