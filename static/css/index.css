@@ -5,7 +5,8 @@
 }
 
 .navbar {
-  background-color: #494747;
+  background-color: #0c0c0c;
+  height: 30px;
 }
 
 .navbar-dark .nav-item.active .nav-link,
