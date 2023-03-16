@@ -4,10 +4,18 @@
   margin-left: 0.5cm;
 }
 
-.navbar {
+.navbar .nav-item{
+  color: #fdfdfd;
+
+}
+.navbar{
+
+
   background-color: #111111;
   height: 30px;
+  
 }
+
 
 .navbar-dark .nav-item.active .nav-link,
 .navbar-dark .nav-item .nav-link:active,
