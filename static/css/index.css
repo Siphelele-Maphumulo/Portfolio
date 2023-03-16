@@ -9,6 +9,10 @@
 
 }
 
+.navbar a{
+  color: #fdfdfd;
+}
+
 .navbar{
   background-color: #111111;
   height: 35px;
