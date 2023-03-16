@@ -8,9 +8,12 @@
   color: #fdfdfd;
 
 }
+a {
+  color:azure;
+}
 
-.navbar a{
-  color: #fdfdfd;
+a:hover {
+  color: #7cdfd3;
 }
 
 .navbar{
@@ -19,12 +22,12 @@
 }
 
 
-.navbar-dark .nav-item.active .nav-link,
+/*.navbar-dark .nav-item.active .nav-link,
 .navbar-dark .nav-item .nav-link:active,
 .navbar-dark .nav-item .nav-link:focus,
 .navbar-dark .nav-item:hover .nav-link {
   color: #7cdfd3;
-}
+}*/
 
 #front_art {
   width: auto;
