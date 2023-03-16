@@ -19,6 +19,10 @@
   height: 35px;
 }
 
+.nav-link{
+  color: azure;
+}
+
 
 .navbar-dark .nav-item.active .nav-link,
 .navbar-dark .nav-item .nav-link:active,
