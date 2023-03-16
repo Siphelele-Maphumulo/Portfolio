@@ -8,12 +8,15 @@
   color: #fdfdfd;
 
 }
+
+.navbar .nav-item .a{
+  color: #fdfdfd;
+  font-weight: bold;
+}
+
 .navbar{
-
-
   background-color: #111111;
   height: 35px;
-  
 }
 
 
