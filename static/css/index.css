@@ -4,13 +4,9 @@
   margin-left: 0.5cm;
 }
 
-.navbar .nav-item{
+.navbar .nav-item .a{
   color: #fdfdfd;
 
-}
-.navbar a{
-  color: #fdfdfd;
-  font-weight: bold;
 }
 
 .navbar{
