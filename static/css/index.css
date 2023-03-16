@@ -9,6 +9,11 @@
 
 }
 
+.navbar a {
+  color: #fdfdfd;
+
+}
+
 
 a:hover {
   color: #7cdfd3;
