@@ -1,0 +1,67 @@
+[
+  {
+    "id": 0,
+    "type": "",
+    "attributes": {
+      "title": "one"
+    }
+  },
+  {
+    "id": 1,
+    "type": "carousel",
+    "attributes": {
+      "title": "two",
+      "slides": [
+        {
+          "source": "assets/img/carousel-one.jpg",
+          "alt": "Carousel One",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Cras a augue dignissim, accumsan risus sit amet, egestas quam. Nullam et felis dignissim, bibendum leo tincidunt, ultricies massa."
+        },
+        {
+          "source": "assets/img/carousel-two.jpg",
+          "alt": "Carousel two",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Cras a augue dignissim, accumsan risus sit amet, egestas quam. Nullam et felis dignissim, bibendum leo tincidunt, ultricies massa."
+        },
+        {
+          "source": "assets/img/carousel-three.jpg",
+          "alt": "Carousel three",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Cras a augue dignissim, accumsan risus sit amet, egestas quam. Nullam et felis dignissim, bibendum leo tincidunt, ultricies massa."
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "type": "video",
+    "attributes": {
+      "title": "three",
+      "size": {
+      "width": 1280,
+        "height": 720
+      },
+      "source": {
+        "mp4": "assets/videos/video.mp4",
+        "ogg": "assets/videos/video.ogg"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "type": "image",
+    "attributes": {
+      "title": "four",
+      "alt": "Carousel One",
+      "size": {
+        "width": 934,
+        "height": 1401
+      },
+      "source": {
+        "narrow": "assets/img/carousel-two.jpeg",
+        "wide": "assets/img/carousel-one.jpeg"
+      }
+    }
+  }
+]

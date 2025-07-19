@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>These Are All My Projects</title>
+    <meta name="description" content="Card Expansion Effect with SVG clipPath" />
+    <meta name="keywords" content="clipPath, svg, effect, layout, expansion, images, grid, polygon" />
+    <meta name="author" content="Claudio Calautti for Codrops" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/card.css" />
+    <link rel="stylesheet" type="text/css" href="css/pattern.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script>
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+            var root = document.getElementsByTagName('html')[0];
+            root.setAttribute('class', 'ff');
+        };
+    </script>
+</head>
+<style>
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    .custom-pdf-btn{
+        display: inline-flex;
+        align-items: center;
+        justify-content:center;
+        gap: 8px;
+        padding: 10px 22px;
+        font-size: 18px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        background: linear-gradient(90deg, #ee7076 0%, #b00000 100%);
+        border: none;
+        border-radius: 30px;
+        box-shadow: 0 2px 8px rgba(56,176,0,0.15);
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    }
+    .custom-pdf-btn:hover {
+        background: linear-gradient(90deg,#38b000 0%,#70ee70 100%);
+        transform: scale(1.04);
+        box-shadow: 0 4px 16px rgba(56,176,0,0.25);
+    }
+    .custom-pdf-btn:active, .custom-pdf-btn:focus {
+        background: linear-gradient(90deg,#70ee70 0%,#38b000 100%);
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(56,176,0,0.15);
+    }
+</style>
+
+<body class="demo-1">
+    <div class="container">
+        <header class="codrops-header">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
+                <div class="container">
+
+                    <a class="navbar-brand" href="#" style="color:rgb(122, 122, 122)"><img src="images/black.png" style="height: 30px; padding-top: 1%;" class="navbar-brand" alt=" ">Mr.Maphumulo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="current-demo" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" style="color:rgb(122, 122, 122); font-weight:bolder" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:rgb(122, 122, 122); font-weight:bolder" href="https://github.com/Siphelele-Maphumulo">GitHub</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:rgb(122, 122, 122); font-weight:bolder" href="certificates.html">Certificates</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            <h1>Project Documentations <span>Jnr. Software Developer</span></h1>
+
+        </header>
+        <html class="content">
+        <!-- trianglify pattern container -->
+        <div class="pattern pattern--hidden"></div>
+        <!-- cards -->
+        <div class="wrapper">
+            <div class="card">
+                <div class="card__container card__container--closed">
+                    <svg class="card__image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 500" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <clipPath id="clipPath1">
+                                    <!-- r = 992 = hyp = Math.sqrt(960*960+250*250) -->
+                                    <circle class="clip" cx="960" cy="250" r="992"></circle>
+                                </clipPath>
+                            </defs>
+                            <image style="filter: grayscale(50%)" clip-path="url(#clipPath1)" width="1920" height="500" xlink:href="img/a.jpg"></image>
+                        </svg>
+                    <div class="card__content">
+                        <i class="card__btn-close fa fa-times"></i>
+                        <div class="card__caption">
+                            <h2 class="card__title">The Pet Store</h2>
+                            <p class="card__subtitle">Pet Veterinarian Tracking System</p>
+                        </div>
+                        <div class="card__copy">
+                            <div class="meta">
+                                <img class="meta__avatar" src="img/authors/1.png" alt="author01" />
+                                <span class="meta__author">Siphelele Maphumulo </span>
+                                <span class="meta__date">06/19/2021</span>
+                            </div>
+                            <p>South Africa has gained a reputation for being the crime capital of Africa. Various types of crime are committed in South Africa. I was tasked to development of a Pet Tracker System that will assist pet owners to recover lost
+                                / stolen pets.</p>
+
+                            <h3 class="slide__title "></h3>
+                            <h2 class="slide__desc">
+                                <video class="video" id="video_y1" width="800" height="350" controls>
+                                                  <source src="videos/Pet Store.mp4" type="video/mp4" />
+                                                </video>
+                            </h2>
+                            <a href="pdf/Pet.pdf" target="_blank" class="custom-pdf-btn">
+                                <i class="fa fa-file-pdf-o" style="font-size:20px;"></i>
+                                <span>View Full Document</span>
+                            </a>
+                            <p>Police Statistics have reported an increase in thoroughbred dogs and puppies being stolen and being used in illegal dog fights or being resold on the black market as pets. To curb the increase in theft and abuse of animals,
+                                animal lovers can have their pet microchipped by a veterinarian. A microchip contains a unique ID number that will be used to register and keep 2 track of a pet on the database. The vet will give the pet ID to the owner
+                                for registration of the pet after the microchip has been inserted. Any animal that is stolen and recovered can be scanned by a vet or the SPCA to locate the microchip and its corresponding pet ID. In this way their owner
+                                can be identified, contacted and the pet returned to its owner. The system is not restricted to dogs, cats and other types of pets can also be microchipped and registered as well.
+                            </p>
+                            <b>You are expected to build a desktop application using a database that allows a veterinarian or pet owner to perform the following:</b>
+                            <p>(a) Registration of Pet Owners: When registering pet owners, the system should make sure that no two pet owners have the same ID number. Use the SA ID number which is unique. Information such as name, address and contact details
+                                should be stored for a pet owner. A pet owner should be able to sign up and create a login profile and register as a pet owner when using the system for the first time.</p>
+                            <p>(b) Registration of Pets: pet owners should be able to login and register a new pet that has been microchipped as belonging to him/her. Information for a pet will include details such as type of pet, breed, colour, gender,
+                                date of birth etc. A pet owner can own many pets and may choose to have all their pets registered on the system. The system can keep track of a pet owner and link him to all his registered pets.</p>
+                            <p>(c) Check Pet status: Lost/stolen animals recovered by police or members of the public are taken to the SPCA or local vet to see if they have a microchip. If a microchip is found, the vet will then check the status of the animal,
+                                to see if the pet has been reported as lost/stolen. Vets must be able to determine who the owner is and retrieve his information, so that the pet owner may be contacted and reunited with his pet.</p>
+                            <p>(d) Select/insert/update/delete records : This function should allow a pet owner to view the information of all pets that are registered to him. Allow a pet owner options to register a new pet, update information for an existing
+                                pet, and delete a record for a pet that has died.</p>
+                            <p>(e) Lost/Stolen Pets: For pets that have been reported as lost / stolen, and their status updated to reflect as such. Details of the case should be recorded in a new table. Such information should show pet ID, owner ID, date
+                                of loss/theft, vicinity of loss/theft and status. When a previously reported lost/stolen animal is recovered, update their status to recovered.</p>
+                            <p>(f) Transfer of pet ownership: Sometimes pets may change owners due to a variety of reasons. Allow a pet owner to change the status of his ownership for a specific pet where ownership has been transferred. The system should
+                                keep a history of the transfer of the pet, with details recorded of the previous owner ID, new owner ID, pet ID, date of transfer and reason for transfer. For an existing pet already on the system that has changed owners,
+                                the new owner can login and have an existing pet assigned to him, provided that the sale/transfer is verified through the transfer history.</p>
+                            <p>(g) Please ensure that you identify and create all needed tables for the required functionality. Ensure that you normalise your tables to prevent redundancies and anomalies. You are free to choose between creating MS Access,
+                                SQL Server or an Oracle database. Ensure that you populate your tables with adequate data so as to test your application rigorously and thoroughly
+                            </p>
+                            <p>(h) Please ensure that you provide adequate validation so as to minimise data capture errors and also handle all exceptions, so that your program does not crash</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__container card__container--closed">
+                    <svg class="card__image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 500" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <clipPath id="clipPath2">
+                                    <!-- r = 992 = hyp = Math.sqrt(960*960+250*250) -->
+                                    <circle class="clip" cx="960" cy="250" r="992"></circle>
+                                </clipPath>
+                            </defs>
+                            <image style="filter: grayscale(10%)"clip-path="url(#clipPath2)" width="1920" height="500" xlink:href="img/b(2).jpg"></image>
+                        </svg>
+                    <div class="card__content">
+                        <i class="card__btn-close fa fa-times"></i>
+                        <div class="card__caption">
+                            <h2 class="card__title">Taxi App</h2>
+                            <p class="card__subtitle">E-hailing Taxi Mobile App</p>
+                        </div>
+                        <div class="card__copy">
+                            <div class="meta">
+                                <img class="meta__avatar" src="img/authors/1.png" alt="author02" />
+                                <span class="meta__author">Siphelele Maphumulo</span>
+                                <span class="meta__date">02/30/2022</span>
+                            </div>
+                            <p>Angular, Ionic, Capacitor, Firebase and MySQL</p>
+                            <h3 class="slide__title "></h3>
+                            <h2 class="slide__desc">
+                                <video class="video" id="video_y1" width="800" height="350" controls>
+                                                  <source src="videos/Pet Store.mp4" type="video/mp4" />
+                                                </video>
+                            </h2>
+                            <p><b>Our app is a E-Hailing taxi services app which intends to manage the taxi business industry and its fleet. Our app will be dedicated to establishing good 
+                                    business relationships between taxi owners, drivers and taxi passengers giving them more value for their money and simplifying terms to hire their services. 
+                                    This includes conveying to passengers’ brief information of a specific taxi, its driver, and its owner.</b></p>
+                            <p>This shall help to uniquely identify each taxi in cases of emergencies, accidents, bad driving, hiring, and reporting. Clients will have to enter a taxi number plate to access information of each taxi.</p>
+
+                            <p>The app will be suited to operate on any android and Apple devices and opened to any future technology of these devices. Its database is stored in cloud storage. The app is gradually updated as I collect more information of
+                                different taxi associations around South Africa</p>
+                            <p>Our app involves managing the taxi business for taxi owners, passengers, rank managers, associations, and professional taxi drivers. Our aim is to offer the above stated services but will not close doors to diversification
+                                as long as it does not affect our core services</p>
+                            <p><b>Instructions</b></p>
+                            <p>You have been requested to create a mobile application that will authenticate users using their email address and password. Use firebase for authentication.</p>
+                            <p>Navigate to the login page when the start button is clicked. You can either use a slide or a simple welcome page</p>
+                            <p>✓ Save and authenticate the email and password using firebase. <br>✓ Name, Surname and Username are not to be validated or saved. They are there for design purposes. <br>✓ Display an appropriate error message if email address
+                                and password have not been entered <br>✓ If the user has entered correct details, display the message “You have successfully logged in”. <br>✓ Navigate to the appropriate pages when other links are clicked.</p>
+                            <p>✓ Login using the email address and password credentials stored on firebase. <br>✓ Display an appropriate error massage if no values have been entered or if values entered do not exist. <br>✓ Display an appropriate error messageSend
+                                a verification email message to a successfully registered user . <br>✓ Ensure that the user enters both email and password. <br>✓ Display an appropriate error message if both email address and password have not been entered.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__container card__container--closed">
+                    <svg class="card__image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 500" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <clipPath id="clipPath3">
+                                    <!-- r = 992 = hyp = Math.sqrt(960*960+250*250) -->
+                                    <circle class="clip" cx="960" cy="250" r="992"></circle>
+                                </clipPath>
+                            </defs>
+                            <image style="filter: grayscale(0%)" clip-path="url(#clipPath3)" width="1920" height="500" xlink:href="img/cc.jpg"></image>
+                        </svg>
+                    <div class="card__content">
+                        <i class="card__btn-close fa fa-times"></i>
+                        <div class="card__caption">
+                            <h2 class="card__title">Hardware App</h2>
+                            <p class="card__subtitle">Hardware Store App</p>
+                        </div>
+                        <div class="card__copy">
+                            <div class="meta">
+                                <img class="meta__avatar" src="img/authors/1.png" alt="author03" />
+                                <span class="meta__author">Siphelele Maphumulo</span>
+                                <span class="meta__date">02/30/2022</span>
+                            </div>
+                            <p>Angular, Ionic, Capacitor, Firebase and MySQL</p>
+                            <h3 class="slide__title "></h3>
+                            <h2 class="slide__desc">
+                                <video class="video" id="video_y1" width="800" height="350" controls>
+                                        <source src="videos/Pet Store.mp4" type="video/mp4" />
+                                </video>
+                            </h2>
+                            <p><b>I was requested to create a mobile application that allows customers of a hardware store to make purchases online.</b></p>
+                            <p>To make orders, customers must be registered and authenticated using their email and password. Firebase will be used to register users, verify their email addresses, and store their information in a MySQL database. The registration
+                                page information provided must be added to both Firebase and MySQL.The objective is to create a user-friendly mobile application that streamlines the online shopping experience for the hardware store's customers.</p>
+
+                            <p><b>Client Requirements</b></p>
+                            <p><b>Siyeshe holdings in small hardware that sells building material. The hardware store has requested you 
+                                to create a mobile application that's allows it customers to make purchases online. Follow the 
+                                instructions below will assist you in creating the application.</b></p>
+                            <p>Create a Database called Inventory using MySQL with the following tables given below:</p>
+                            <table style="width: 30%;">
+                                <tr>
+                                    <th>Customers</th>
+                                    <th>Category</th>
+                                    <th>Products</th>
+                                    <th>Orders</th>
+                                </tr>
+                                <tr>
+                                    <td>CustID</td>
+                                    <td>catID</td>
+                                    <td>prodID</td>
+                                    <td>orderID</td>
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>catDescreption</td>
+                                    <td>catID</td>
+                                    <td>prodID</td>
+                                </tr>
+                                <tr>
+                                    <td>surname</td>
+                                    <td></td>
+                                    <td>prodDescreption</td>
+                                    <td>custID</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>username</td>
+                                    <td></td>
+                                    <td>price</td>
+                                    <td>cost</td>
+                                </tr>
+                                <tr>
+                                    <td>email</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>date</td>
+                                </tr>
+                                <tr>
+                                    <td>contact</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                </tr>
+
+                            </table>
+
+                            <p>You have been requested to create a mobile application that will authenticate users using their email address and password. Use firebase for authentication.</p>
+                            <p>Navigate to the login page when the start button is clicked. You can either use a slide or a simple welcome page</p>
+                            <br>✓ Save and authenticate the email and password using firebase.
+                            <br>✓ Name, Surname and Username are not to be validated or saved. They are there for design purposes.
+                            <br>✓ Display an appropriate error message if email address and password have not been entered <br>✓ If the user has entered correct details, display the message “You have successfully logged in”. <br>✓ Navigate to the appropriate
+                            pages when other links are clicked.
+                            <br>✓ Login using the email address and password credentials stored on firebase.
+                            <br>✓ Display an appropriate error massage if no values have been entered or if values entered do not exist.
+                            <br>✓ Display an appropriate error messageSend a verification email message to a successfully registered user .
+                            <br>✓ Ensure that the user enters both email and password.
+                            <br>✓ Display an appropriate error message if both email address and password have not been entered.
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="card__container card__container--closed">
+                <svg class="card__image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 500" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <clipPath id="clipPath4">
+                                    <!-- r = 992 = hyp = Math.sqrt(960*960+250*250) -->
+                                    <circle class="clip" cx="960" cy="250" r="992"></circle>
+                                </clipPath>
+                            </defs>
+                            
+                            <image style="filter: grayscale(0%)" clip-path="url(#clipPath4)" width="1920" height="500" xlink:href="img/e.jpg"></image>
+                        </svg>
+                <div class="card__content">
+                    <i class="card__btn-close fa fa-times"></i>
+                    <div class="card__caption">
+                        <h2 class="card__title">E-Learning</h2>
+                        <p class="card__subtitle">Online Learning System</p>
+                    </div>
+                    <div class="card__copy">
+                        <div class="meta">
+                            <img class="meta__avatar" src="img/authors/1.png" alt="author02" />
+                            <span class="meta__author">Siphelele Maphumulo</span>
+                            <span class="meta__date">02/30/2022</span>
+                        </div>
+                        <p>NetBeans, Java, SQL and FL Studio, Photoshop</p>
+                        <h3 class="slide__title "></h3>
+                        <h2 class="slide__desc">
+                            <video class="video" id="video_y1" width="800" height="350" controls>
+                                              <source src="videos/Pet Store.mp4" type="video/mp4" />
+                                            </video>
+                        </h2>
+                        <p><b>I was tasked to develop an online testing and grading system for students and lecturers. Students and lecturers can log in to the system and have access to different panels. The system ensures that only registered students can take tests, and lecturers can set multiple choice and true or false tests.</b></p>
+                        <p>Students can take tests at the set date and time, and the duration of the test is clearly displayed, decreasing as time passes. The test is automatically submitted when the time lapses, and lecturers can view students' grades and
+                            download them in excel format. The system also allows lecturers to set multiple tests and students can review the correct or incorrect answers of their test after it's marked.</p>
+
+                        <p><b>Clients Requirements</b></p>
+                        <p>Covid-19 pandemic has changed the way we live and learn, however, on other hand has presented new methods of teaching and learning. Many universities adopted online teaching and remote assessment. The need for web based assessment
+                            systems that caters for not only teaching and learning but also new challenges as may be posed by remote assessment, is vital important.</p>
+                        <p><b>System Functionalities</b></p>
+                        <p>he system should perform the following functions:</p>
+                        <p>✓ Students and Lecturer should be able to login on the system, and should have access to different screens. No student that is not registered on the system should be able to take a test.
+                            <br>✓ A lecturer should be able to set a multiple choice and true or false test. ✓ The students should be able to take a test at the set date and time. The duration of the test must be clear to the student or must be displayed
+                            as the student is writing, decreasing as time is decreasing.
+                            <br>✓ The test should be automatically be submitted when the time lapses.
+                            <br>✓ A lecturer should be able to view student’s grades.
+                            <br>✓ A Lecturer should be able to download students grades in excel
+                            <br>✓ The students should be able to view the correct or incorrect answers if a Lecturer has granted that permission.
+                            <br>✓ A system should allow a Lecturer to set more than one test (e.g. test1, test2 etc.)
+                            <p><b>Technical Specifications.</b>
+                                <br>• NetBeans IDE must be used.
+                                <br>• Multiple forms are recommended with on main/parent form.
+                                <br>• MySql database should be used.
+                                <br>• Web based application is recommended, however, windows application will be marked, with additional marks for web application.
+                                <br>• Data structures, classes, and inheritance application is a must.
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__container card__container--closed">
+                <svg class="card__image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 500" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <clipPath id="clipPath5">
+                                    <!-- r = 992 = hyp = Math.sqrt(960*960+250*250) -->
+                                    <circle class="clip" cx="960" cy="250" r="992"></circle>
+                                </clipPath>
+                            </defs>
+                            <image style="filter: grayscale(0%)" clip-path="url(#clipPath5)" width="1920" height="500" xlink:href="img/f.jpg"></image>
+                        </svg>
+                <div class="card__content">
+                    <i class="card__btn-close fa fa-times"></i>
+                    <div class="card__caption">
+                        <h2 class="card__title">Dice Game</h2>
+                        <p class="card__subtitle">Game Application</p>
+                    </div>
+                    <div class="card__copy">
+                        <div class="meta">
+                            <img class="meta__avatar" src="img/authors/1.png" alt="author04" />
+                            <span class="meta__author">Siphelele Maphumulo</span>
+                            <span class="meta__date">02/30/2022</span>
+                        </div>
+                        <p>NetBeans, Java, SQL and FL Studio, Photoshop</p>
+                        <h3 class="slide__title "></h3>
+                        <h2 class="slide__desc">
+                            <video class="video" id="video_y1" width="800" height="350" controls>
+                                              <source src="videos/Pet Store.mp4" type="video/mp4" />
+                                            </video>
+                        </h2>
+                        <p>Business model canvas bootstrapping deployment startup. In A/B testing pivot niche market alpha conversion startup down monetization partnership business-to-consumer success for investor mass market business-to-business.</p>
+                        <p>Release creative social proof influencer iPad crowdsource gamification learning curve network effects monetization. Gamification business plan mass market www.discoverartisans.com direct mailing ecosystem seed round sales long
+                            tail vesting period.</p>
+                        <p>Product management ramen bootstrapping seed round venture holy grail technology backing partner network entrepreneur beta marketing value proposition. Android stealth conversion scrum project network effects. Creative alpha long
+                            tail conversion stealth growth hacking iteration investor A/B testing prototype customer. Startup www.discoverartisans.com direct mailing launch party partnership market ramen metrics focus value proposition.
+                        </p>
+                        <p>Stock infrastructure seed round sales paradigm shift technology user experience focus gamification. Partnership metrics business plan stealth business-to-business. Deployment graphical user interface monetization. Twitter incubator
+                            scrum project entrepreneur branding burn rate ramen backing paradigm shift virality crowdsource.</p>
+                        <p>Social proof MVP ecosystem. Ramen launch party pitch deployment stealth. Vesting period MVP equity. Focus creative partnership founders iteration agile development infographic.</p>
+                        <p>Low hanging fruit burn rate innovator user experience niche market A/B testing creative launch party product management release. Www.discoverartisans.com influencer business model canvas user experience gamification paradigm shift
+                            startup research &amp; development iPad agile development. Strategy incubator infographic success marketing buzz A/B testing responsive web design. Traction research &amp; development pitch seed money venture niche market accelerator
+                            network effects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__container card__container--closed">
+                <svg class="card__image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 500" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <clipPath id="clipPath6">
+                                    <!-- r = 992 = hyp = Math.sqrt(960*960+250*250) -->
+                                    <circle class="clip" cx="960" cy="250" r="992"></circle>
+                                </clipPath>
+                            </defs>
+                            <image style="filter: grayscale(0%)" clip-path="url(#clipPath6)" width="1920" height="500" xlink:href="img/kfc.jpg"></image>
+                        </svg>
+                <div class="card__content">
+                    <i class="card__btn-close fa fa-times"></i>
+                    <div class="card__caption">
+                        <h2 class="card__title">Post-of-Sales</h2>
+                        <p class="card__subtitle">Any store post of sales system</p>
+                    </div>
+                    <div class="card__copy">
+                        <div class="meta">
+                            <img class="meta__avatar" src="img/authors/6.png" alt="author06" />
+                            <span class="meta__author">Tom Goldman</span>
+                            <span class="meta__date">06/10/2015</span>
+                        </div>
+                        <p>NetBeans, Java, SQL and FL Studio, Photoshop</p>
+                        <h3 class="slide__title "></h3>
+                        <h2 class="slide__desc">
+                            <video class="video" id="video_y1" width="800" height="350" controls>
+                                              <source src="videos/Pet Store.mp4" type="video/mp4" />
+                                            </video>
+                        </h2>
+
+                        <p>Business model canvas bootstrapping deployment startup. In A/B testing pivot niche market alpha conversion startup down monetization partnership business-to-consumer success for investor mass market business-to-business.</p>
+                        <p>Release creative social proof influencer iPad crowdsource gamification learning curve network effects monetization. Gamification business plan mass market www.discoverartisans.com direct mailing ecosystem seed round sales long
+                            tail vesting period.</p>
+                        <p>Product management ramen bootstrapping seed round venture holy grail technology backing partner network entrepreneur beta marketing value proposition. Android stealth conversion scrum project network effects. Creative alpha long
+                            tail conversion stealth growth hacking iteration investor A/B testing prototype customer. Startup www.discoverartisans.com direct mailing launch party partnership market ramen metrics focus value proposition.
+                        </p>
+                        <p>Stock infrastructure seed round sales paradigm shift technology user experience focus gamification. Partnership metrics business plan stealth business-to-business. Deployment graphical user interface monetization. Twitter incubator
+                            scrum project entrepreneur branding burn rate ramen backing paradigm shift virality crowdsource.</p>
+                        <p>Social proof MVP ecosystem. Ramen launch party pitch deployment stealth. Vesting period MVP equity. Focus creative partnership founders iteration agile development infographic.</p>
+                        <p>Low hanging fruit burn rate innovator user experience niche market A/B testing creative launch party product management release. Www.discoverartisans.com influencer business model canvas user experience gamification paradigm shift
+                            startup research &amp; development iPad agile development. Strategy incubator infographic success marketing buzz A/B testing responsive web design. Traction research &amp; development pitch seed money venture niche market accelerator
+                            network effects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /cards -->
+    </p>
+
+    <!-- /content -->
+    <!-- Related demos -->
+
+    <body class="content content--related">
+        <!-- /container -->
+        <!-- JS -->
+        <script src="js/vendors/trianglify.min.js"></script>
+        <script src="js/vendors/TweenMax.min.js"></script>
+        <script src="js/vendors/ScrollToPlugin.min.js"></script>
+        <script src="js/vendors/cash.min.js"></script>
+        <script src="js/Card-circle.js"></script>
+        <script src="js/demo.js"></script>
+    </body>
+
+    </html>

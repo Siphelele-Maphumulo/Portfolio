@@ -29,6 +29,68 @@
         };
         supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
     </script>
+    
+    
+  <style>
+    .custom-slidenav {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        position: fixed;
+        left: 200;
+        right: 0;
+        bottom: 10px;
+        z-index: 100;
+        background: transparent;
+        pointer-events: none;
+    }
+    .custom-slidenav .custom-btn {
+        pointer-events: auto;
+        background: #222;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        padding: 14px 38px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        transition: background 0.2s, color 0.2s, transform 0.15s;
+        cursor: pointer;
+        outline: none;
+    }
+    .custom-slidenav .custom-btn:hover,
+    .custom-slidenav .custom-btn:focus {
+        background: #28a745;
+        color: #fff;
+        transform: translateY(-2px) scale(1.04);
+    }
+
+    .slide__link {
+        background: #222;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        padding: 14px 38px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        transition: background 0.2s, color 0.2s, transform 0.15s;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        margin: 10px 0;
+    }
+    .slide__link:hover,
+    .slide__link:focus {
+        background: #28a745;
+        color: #fff;
+        transform: translateY(-2px) scale(1.04);
+        outline: none;
+    }
+
+
+  </style>
 </head>
 
 <body class="demo-2 loading">
@@ -60,7 +122,6 @@
 
             <a rel="nofollow" class="pater" onClick="recordOutboundLink(this, 'Outbound Links', 'SenchaCodrops141117');return false;">
 
-                <h2 class="pater__title">By Mr. Maphumulo</h2>
                 <div class="pater__img-wrap"><img class="pater__img" src="pater/black.png" alt="Sencha Creative" /></div>
             </a>
         </div>
@@ -270,11 +331,13 @@
                 </div>
             </div>
 
-            <nav class="slidenav ">
-                <button class="slidenav__item slidenav__item--prev ">Previous</button>
-                <span>/</span>
-                <button class="slidenav__item slidenav__item--next ">Next</button>
+            <nav class="slidenav custom-slidenav">
+                <button class="slidenav__item slidenav__item--prev custom-btn">Previous</button>
+                <button class="slidenav__item slidenav__item--next custom-btn">Next</button>
             </nav>
+            <style>
+
+            </style>
         </div>
     </main>
 

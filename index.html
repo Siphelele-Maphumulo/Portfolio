@@ -9,255 +9,1373 @@
     <meta name="description" content="A slideshow that shows an animated SVG frame on the transitions between slides" />
     <meta name="keywords" content="slideshow, javascript, frame, animation, svg, shape, path, web design">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <!-- Add this inside the <head> of your index.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet " type="text/css " href="css/base.css " />
+    <link rel="stylesheet " type="text/css " href="css/style3.css " />
+    <link rel="stylesheet " type="text/css " href="css/demo2.css " />
     <link rel="stylesheet " type="text/css " href="pater/pater.css " />
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Include jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
-
-    <style>
-        /* Enable hover dropdown for the navbar */
-        .navbar-nav .dropdown:hover .dropdown-menu {
-            display: block;
-            margin-top: 0;
-            animation: fadeIn 0.3s; /* Optional fade-in animation */
-        }
-
-        /* Optional fade-in animation for dropdown menus */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-    </style>
 </head>
+<style>
+
+/* Footer Styles */
+footer {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  padding: 60px 0 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.footer-column p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.service-list {
+  list-style: none;
+}
+
+.service-list li {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.service-list li:before {
+  content: "•";
+  color: var(--secondary-color);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+
+.subscription-form {
+  display: flex;
+  margin-top: 20px;
+}
+
+.subscription-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+}
+
+.subscription-form button {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 0 20px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.subscription-form button:hover {
+  background-color: #249e8d;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  background-color: #00102e;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-bottom .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.footer-bottom-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom-col {
+  flex: 1;
+  min-width: 100%;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.footer-bottom-col p {
+  margin: 0;
+  padding: 0 15px;
+}
+
+/* Modal Overlay (Background) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Newsletter Button Styles */
+.newsletter-btn {
+  background-color: #2ac6a7;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-btn:hover {
+  background-color: #1da58a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter-btn:active {
+  transform: translateY(0);
+}
+
+/* Full-Screen Modal Content */
+#newsletterModal .modal-content {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  background: #00102e;
+  border-radius: 0;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Close Button Styling */
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: rgb(233, 10, 10);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-modal:hover {
+  transform: scale(1.2);
+}
+
+/* Iframe - Ensure it fits well */
+.newsletter-iframe {
+  width: 95%;
+  height: 90%;
+  border: none;
+  border-radius: 8px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.licensing-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+ /* Scroll to Top Button */
+#scrollToTop {
+  position: fixed;
+  bottom: 30px; /* Position at the bottom */
+  right: 30px; /* Position at the right */
+  width: 50px;
+  height: 50px;
+  background-color: #2ac8a8; /* Button color */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  border-radius: 50%; /* Make it a circle */
+  transition: all 0.3s ease-in-out;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden;
+}
+
+#scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+-- > #scrollToTop:hover {
+  background-color: #249e8d;
+  transform: translateY(-3px);
+}
+
+/* ----------------------------------------------------------------------------------------------------------*/
+
+/* =========================
+FOOTER RESPONSIVE STYLES
+========================= */
+
+/* Navbar Styles */
+/* Navbar Styles */
+.nav-toggle {
+  display: none; /* Hidden by default */
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hamburger menu and dropdown for all screen sizes */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-toggle-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .nav-toggle {
+    display: block;
+    padding: 10px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #00102e;
+    padding: 20px;
+    width: 200px;
+  }
+
+  .nav-toggle-container:hover .nav-links {
+    display: flex;
+  }
+  .footer-column{
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .contact-info{
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Animation Css */
+
+/* Animate on load */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spinIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-720deg) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Spin animation class */
+.spin-in {
+  opacity: 0;
+  animation: spinIn 1s ease-out forwards;
+}
+
+/* Delays for staggered appearance */
+.delay-1 {
+  animation-delay: 1s;
+}
+.delay-2 {
+  animation-delay: 3s;
+}
+.delay-3 {
+  animation-delay: 5s;
+}
+.delay-4 {
+  animation-delay: 8s;
+}
+
+/* Animate on load */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation utility classes */
+.fade-in {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.zoom-in {
+  animation: zoomIn 1.3s ease forwards;
+}
+
+.slide-down {
+  animation: slideDown 1.2s ease forwards;
+}
+
+.pop-in {
+  animation: popIn 1.4s ease forwards;
+}
+
+.icon-fade {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.icon-fade.delay-1 {
+  animation-delay: 0.6s;
+}
+.icon-fade.delay-2 {
+  animation-delay: 0.8s;
+}
+.icon-fade.delay-3 {
+  animation-delay: 1s;
+}
+
+.icon-fade.delay-5 {
+  animation-delay: 6s;
+}
+
+/* about animation */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Trigger animations */
+.slide-left {
+  animation: slideInLeft 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-right {
+  animation: slideInRight 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-right {
+  animation-delay: 1s;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideFromLeft 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-in-right {
+  animation: slideFromRight 1.2s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.3s; /* Just a little delay for staggered entry */
+}
+
+/* Initial hidden states */
+.hidden-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s ease-in-out;
+}
+
+.hidden-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1s ease-in-out;
+}
+
+/* When in view */
+.show-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.show-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Final state: In place and visible */
+.slide-in-left.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-in-right.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* digital section */
+
+/* Base hidden state for animation */
+.hidden-core {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: all 1s ease;
+}
+
+/* Animate in when visible */
+.core-box.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Optional staggered delay */
+.core-box:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.core-box:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.core-box:nth-child(3) {
+  transition-delay: 0.6s;
+}
+.core-box:nth-child(4) {
+  transition-delay: 0.8s;
+}
+
+/* Initial hidden state for team cards */
+.hidden-team {
+  opacity: 0;
+  transform: translateY(50px) scale(0.85) rotateX(10deg);
+  transition: all 1s ease;
+  perspective: 1000px;
+}
+
+/* Animate in when visible */
+.team-card.animate-team {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+/* Staggered delays */
+.team-card:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.team-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.team-card:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.footer-column {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 1.2s ease-out;
+  will-change: opacity, transform;
+}
+
+/* When scrolled into view */
+.footer-column.animate-footer {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Fade out again */
+.footer-column.fade-out {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+/* Give each footer column a unique delay for fun staggered entrance */
+.footer-column:nth-child(1) {
+  transition-delay: 0.3s;
+}
+.footer-column:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.footer-column:nth-child(3) {
+  transition-delay: 0.9s;
+}
+.footer-column:nth-child(4) {
+  transition-delay: 1.2s;
+}
+
+/* Optional: Newsletter Button hover */
+.newsletter-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #2ac6a7;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.newsletter-btn:hover {
+  background: #00b37d;
+}
+.btn-primary{
+  background: #2ac6a7;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: #2ac6a7;
+    color: #555;
+    text-align: center;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.social-icons a:hover {
+    background: #f0f0f0;
+    color: #222;
+    transform: scale(1.08);
+}
+
+.social-icons a {
+    width: 30px;
+    height: 30px;
+    transform: scale(1.05);
+}
+
+.icon {
+    width: 23px;
+}
+
+</style>
+
+<body style="background-color: #000000;">
 
 
-<body>
- <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
-        <div class="container">
-
-            <a class="navbar-brand" href="#" style="color:rgb(122, 122, 122)">
-                <img src="images/black.png" style="height: 30px; padding-top: 1%;" class="navbar-brand" alt=" ">Mr.Maphumulo
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#about" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            About
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                            <li><a class="dropdown-item" href="#about">About Me</a></li>
-                            <li><a class="dropdown-item" href="#career">Career Summary</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Skills">Skills</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#portfolio" id="portfolioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Portfolio
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="portfolioDropdown">
-                            <li><a class="dropdown-item" href="#portfolio">Overview</a></li>
-                            <li><a class="dropdown-item" href="wProjects.html">Projects</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="certificates.html">Certificates</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
-    <!-- main banner -->
-    <section class="bgimage" id="home">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
-                    <h2 class="hero_title" Style="padding-bottom: 140px;">Hi, it's me Siphelele Maphumulo!</h2>
-                    <p class="hero_desc"></p>
-                </div>
-            </div>
-
-
-        </div>
-
-    </section>
-    <div>
-        <hr id="about" style="color: transparent;">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll custom-navbar" id="mainNavbar">
+  <div class="container">
+    <div id="glass-navbar-brand" style="position: absolute; top: 0; left: 0; margin: 0; z-index: 1051; width: auto; transition: opacity 0.4s;">
+      <a class="navbar-brand glass-navbar-brand" href="index.html" style="color:#fff; padding: 0 20px; display: flex; align-items: center; height: 56px; background: rgba(255, 255, 255, 0.144); backdrop-filter: blur(4px); border-radius: 0 0 20px 0; transition: opacity 0.4s, visibility 0.4s;">
+        <img src="images/black.png" style="height: 30px; margin-right: 8px; color:azure" alt="Logo for Mr Maphumulo">Mr. SA Maphumulo
+      </a>
+      <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const brand = document.querySelector('.glass-navbar-brand');
+        const navbar = document.getElementById('mainNavbar');
+        function updateBrand() {
+          if (window.scrollY > 0) {
+            brand.style.opacity = '1';
+            brand.style.visibility = 'visible';
+          } else {
+            brand.style.opacity = '0';
+            brand.style.visibility = 'hidden';
+          }
+        }
+        window.addEventListener('scroll', updateBrand);
+        updateBrand();
+      });
+      </script>
     </div>
-    <!-- about section-->
-    <section>
-        <div class="container mt-4 pt-4">
-            <h1 class="text-center" style="padding-top: 20px;">About Me</h1>
-            <div class="row mt-4">
-                <div class="col-lg-4" style="margin-left: -80px;">
-                    <img src="images/3.jpg" style="padding-bottom: 10px; width: 95%;" alt="">
-                </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link nav-section-link" href="#home" data-section="home">
+            <i class="fas fa-home me-1"></i> Home
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle nav-section-link" href="#about" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-section="about">
+            <i class="fas fa-user me-1"></i> About
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+            <li>
+              <a class="dropdown-item nav-section-link" href="#about" data-section="about">
+                <i class="fas fa-id-card me-1"></i> About Me
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item nav-section-link" href="#career" data-section="career">
+                <i class="fas fa-briefcase me-1"></i> Career Summary
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item nav-section-link" href="https://maphumulo-gallery.vercel.app/" data-section="gallery" target="_blank">
+                <i class="fas fa-images me-1"></i> My Gallery
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-section-link" href="#Skills" data-section="Skills">
+            <i class="fas fa-cogs me-1"></i> Skills
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle nav-section-link" href="#portfolio" id="portfolioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-section="portfolio">
+            <i class="fas fa-briefcase me-1"></i> Portfolio
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="portfolioDropdown">
+            <li>
+              <a class="dropdown-item nav-section-link" href="#portfolio" data-section="portfolio">
+                <i class="fas fa-th-large me-1"></i> Overview
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <!-- Bootstrap-compatible submenu for Projects -->
+            <li class="dropdown-submenu position-relative">
+              <a class="dropdown-item dropdown-toggle" href="#" id="projectsSubDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-folder-open me-1" style="color: #2ac6a7;"></i> Projects
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="projectsSubDropdown" style="left: 100%; top: 0; min-width: 200px;">
+                <li>
+                  <a class="dropdown-item" href="Project.html">
+                    <i class="fas fa-code-branch me-1" style="color: #8AFF80;"></i> All Projects
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="documentation.html">
+                    <i class="fas fa-file-alt me-1" style="color: #FFD700;"></i> Documentation
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-section-link" href="#contact" data-section="contact">
+            <i class="fas fa-envelope me-1"></i> Contact
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#certificates" id="certificateDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-certificate me-1"></i> Certificates
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="certificateDropdown">
+            <li>
+              <a class="dropdown-item" href="certificates.html">
+                <i class="fas fa-award me-1"></i> Certificates
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="./Certificates/academic.pdf" target="_blank">
+                <i class="fas fa-file-alt me-1"></i> Academic Record
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./Certificates/CV.pdf" target="_blank">
+            <i class="fas fa-file-pdf me-1" style="color: #e74c3c;"></i> CV
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-                <div class="col-lg-8" style="margin-left: 43px;">
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.getElementById('mainNavbar');
+    let hideTimeout = null;
+    let lastActivity = Date.now();
 
-                    <div>
-                        <p>
-                            My name is Siphelele Audacious Maphumulo, I was born on February 25, 1992. I am a junior software developer by profession and can be contacted at 068 676 4623 or through my email at Siphelelemaphumulo@gmail.com.
-                        </p>
+    // Add a CSS class for transparent effect
+    const transparentClass = 'navbar-transparent';
 
+    // Add the CSS for the transparent class
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .${transparentClass} {
+            background: transparent !important;
+            box-shadow: none !important;
+            transition: background 0.5s, box-shadow 0.5s;
+            opacity: 0.2 !important;
+            pointer-events: auto;
+        }
+    `;
+    document.head.appendChild(style);
+
+    function showNavbar() {
+        navbar.classList.remove(transparentClass);
+    }
+
+    function hideNavbar() {
+        navbar.classList.add(transparentClass);
+    }
+
+    function resetTimer() {
+        showNavbar();
+        lastActivity = Date.now();
+        if (hideTimeout) clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => {
+            // Only hide if no activity for 5 seconds
+            if (Date.now() - lastActivity >= 5000) {
+                hideNavbar();
+            }
+        }, 5000);
+    }
+
+    // Listen for mousemove, scroll, and touch events
+    ['mousemove', 'scroll', 'touchstart', 'keydown'].forEach(evt => {
+        window.addEventListener(evt, resetTimer, {passive: true});
+    });
+
+    // Initial timer
+    resetTimer();
+});
+</script>
+<style>
+/* Custom Navbar Styles */
+.custom-navbar {
+    background: transparent !important;
+    box-shadow: none;
+    border-bottom: none;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+.custom-navbar.scrolled {
+    background: rgba(10, 10, 10, 0.92) !important;
+    box-shadow:
+        0 2px 16px 0 rgba(42, 198, 167, 0.08),
+        0 1.5px 8px 0 rgba(255,255,255,0.06),
+        0 0.5px 0.5px 0 rgba(255,255,255,0.12) inset;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(2px);
+}
+.custom-navbar .navbar-nav .nav-link {
+    color: #fff !important;
+    transition: color 0.2s, background 0.2s;
+    position: relative;
+}
+.custom-navbar .navbar-nav .nav-link:hover,
+.custom-navbar .navbar-nav .nav-link:focus {
+    color: #2ac6a7 !important;
+    background: rgba(42, 198, 167, 0.07);
+    border-radius: 8px;
+}
+.custom-navbar .navbar-nav .nav-link.active {
+    color: #2ac6a7 !important;
+}
+.custom-navbar .dropdown-menu {
+    background: #181818;
+    border-radius: 10px;
+    border: 1px solid #2ac6a722;
+    box-shadow: 0 4px 16px rgba(42,198,167,0.08);
+}
+.custom-navbar .dropdown-item {
+    color: #fff;
+    transition: color 0.2s, background 0.2s;
+}
+.custom-navbar .dropdown-item:hover,
+.custom-navbar .dropdown-item:focus {
+    color: #2ac6a7;
+    background: rgba(42, 198, 167, 0.07);
+}
+@media (max-width: 991px) {
+    .custom-navbar.scrolled {
+        background: rgba(10, 10, 10, 0.97) !important;
+        box-shadow:
+            0 2px 16px 0 rgba(42, 198, 167, 0.10),
+            0 1.5px 8px 0 rgba(255,255,255,0.08),
+            0 0.5px 0.5px 0 rgba(255,255,255,0.14) inset;
+    }
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const navbar = document.getElementById('mainNavbar');
+
+    function updateNavbar() {
+        if (window.scrollY > 0) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    });
+
+    // Initial state
+    updateNavbar();
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Section IDs to control
+    const sectionIds = ['home', 'about', 'career', 'Skills', 'portfolio', 'contact'];
+    // Map section IDs to their DOM elements
+    const sections = {};
+    sectionIds.forEach(id => {
+        // Try to get section by id, fallback to element with id as anchor (for hr)
+        let el = document.getElementById(id);
+        if (!el) {
+            // Try to find a section containing the hr with this id
+            el = document.querySelector('hr#' + id);
+            if (el) el = el.parentElement;
+        }
+        if (el) sections[id] = el;
+    });
+
+    // Hide all sections except the first (home)
+    function showSection(sectionId) {
+        sectionIds.forEach(id => {
+            if (sections[id]) {
+                if (id === sectionId) {
+                    sections[id].style.display = '';
+                } else {
+                    sections[id].style.display = 'none';
+                }
+            }
+        });
+        // Scroll to top of the shown section
+        if (sections[sectionId]) {
+            sections[sectionId].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Initial state: show home, hide others
+    showSection('home');
+
+    // Handle navbar clicks
+    document.querySelectorAll('.nav-section-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const section = this.getAttribute('data-section');
+            if (section && sectionIds.includes(section)) {
+                e.preventDefault();
+                showSection(section);
+                // Collapse navbar on mobile after click
+                const navbarCollapse = document.querySelector('.navbar-collapse.show');
+                if (navbarCollapse) {
+                    new bootstrap.Collapse(navbarCollapse, {toggle: true});
+                }
+            }
+        });
+    });
+});
+</script>
+
+<!-- Main Hero Section -->
+<section class="bgimage" id="home">
+        <!-- Slideshow Section -->
+        <ul class="cb-slideshow">
+            <li><span style="color: transparent;">Image 01</span><div><h3>Welcome to My Portfolio</h3></div></li>
+            <li><span style="color: transparent;"><div><h3>I'm Siphelele Maphumulo</h3></div></li>
+            <li><span style="color: transparent;"><div><h3>Passionate Software Developer</h3></div></li>
+            <li><span style="color: transparent;"><div><h3>Building Innovative Solutions</h3></div></li>
+            <li><span style="color: transparent;"><div><h3>Explore My Projects & Skills</h3></div></li>
+            <li><span style="color: transparent;"><div><h3>Let's Connect & Collaborate!</h3></div></li>
+        </ul>
+  
+</section>
+
+<!-- ABOUT ME SECTION -->
+<section id="about"  class="aboutME-slideshow" style="background: #000000;">
+    <div class="container mt-4 pt-4">
+        <h1 class="text-center hero_title" style="margin-top: -20px; color: #fff;">ABOUT ME</h1>
+        <div class="row mt-4 justify-content-center">
+            <!-- Profile Card -->
+            <div class="col-lg-4 d-flex align-items-stretch mb-4">
+                <div class="card about-card shadow-lg animate__animated animate__fadeInLeft"
+                    style="border-radius: 30px; overflow: hidden; background: #0A0A0A; color: #fff; border: 4px solid #fffbe6;">
+                    <img src="images/sphe.png" class="card-img-top" alt="Siphelele Maphumulo" style="object-fit: cover; height: 300px;">
+                    <div class="card-body text-center">
+                        <h4 class="card-title mb-2" style="font-weight: bold; color: #fff;">Siphelele Audacious Maphumulo</h4>
+                        <p class="card-text mb-1"><i class="fas fa-birthday-cake"></i> Born: Feb 25, 1992</p>
+                        <p class="card-text mb-1"><i class="fas fa-phone"></i> 068 676 4623</p>
+                        <p class="card-text"><i class="fas fa-envelope"></i> <a href="mailto:Siphelelemaphumulo@gmail.com" style="color: #fff; text-decoration: underline;">Siphelelemaphumulo@gmail.com</a></p>
                     </div>
-                    <p> I graduated with a diploma in Information Technology (Cum Laude) from Mangosuthu University of Technology in 2023. During my studies, I gained valuable knowledge and skills in various programming languages such as C#, Javascript, Python and more.
-                        I also learned about software development methodologies and project management techniques that are crucial in the industry. <br> Currently, I am doing my in-service training at Ocule IT under Coding SA Institute. This experience has been invaluable
-                        as it allows me to apply my theoretical knowledge into practical situations. Working alongside experienced professionals has given me an opportunity to learn from their vast experience and expand my skill set even further. 
-                        This  allowed me to make significant contributions to the success of the organization I work in, and I am now confident that my skills and experience would be an asset to any team.
-
-
-
-
-
-
-
-
-<br>                        In my free time,I enjoy attending coding boot camps and online tutorials to further improve my skills. As a lifelong learner, I believe that continuous learning is key to staying relevant in the ever-changing tech industry.
-
-                    </p>
-
-                </div>
-                <div class="row mt-3">
-                    <p>
-                    </p>
                 </div>
             </div>
-            <hr id="career" style="color: transparent;">
-        </div>
-    </section>
-    <section class="col-lg-8" style="background:url(./images/cardboardjpg.jpg);background-repeat: round; color:azure; width:100%; padding-top: 50px;">
-        <div>
-            <h1 class="text-center">Career Summary</h1>
-            <div class="row mt-3">
-                <div class="col-lg-4">
-                    <main>
-                        <div class="content content--fixed ">
-                            <header class="codrops-header ">
-                                <div class="codrops-links ">
-                                    <a class="codrops-icon codrops-icon--prev "  title="Previous Demo "><svg class="icon icon--arrow "><use xlink:href="#icon-arrow "></use></svg></a>
-                                    <a class="codrops-icon codrops-icon--drop  title="Back to the article "><svg class="icon icon--drop "><use xlink:href="#icon-drop "></use></svg></a>
-                                </div>
-                            </header>
+            <!-- Details Card -->
+            <div  class="col-lg-8 d-flex align-items-stretch mb-4">
+                <div class="card about-card shadow-lg animate__animated animate__fadeInRight"
+                    style="border-radius: 30px; background: #0A0A0A; color: #fff; border: 4px solid #fffbe6;">
+                    <div class="card-body" style="font-size: 1.1rem;">
+                        <div id="aboutMeContent" style="max-height: 400px; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; position: relative;">
+                            <style>
+                                #aboutMeContent::-webkit-scrollbar {
+                                    display: none;
+                                }
+                            </style>
+                            <p>
+                                My name is Siphelele Audacious Maphumulo, and I am an experienced software developer with a story that sets me apart. My journey has not been a straight line, but every challenge has shaped me into a resilient, resourceful, and deeply motivated professional.
+                            </p>
+                            <p>
+                                In 2016, I was forced to leave Durban University of Technology due to financial hardship. I became a waiter to support my family, working tirelessly and saving every cent to one day return to my studies. In 2019, I restarted my university journey at Mangosuthu University of Technology, determined to build a better future. If you review my academic record, you’ll see I have never failed a single module—my commitment and discipline are unwavering.
+                            </p>
+                            <p>
+                                I recently graduated in 2025 with an Advanced Diploma in Applications Development. My academic achievements are matched by practical experience gained through internships and real-world projects. I do not create random or repetitive projects; every solution I build addresses genuine problems and aims to make life easier and better for others. My portfolio reflects this philosophy—innovation, purpose, and impact are at the heart of my work.
+                            </p>
+                            <p>
+                                My unique skill set spans C#, JavaScript, Python, PHP, and modern frameworks like Angular and React. I have hands-on experience in both front-end and back-end development, and I thrive in collaborative environments where ideas are valued and challenges are embraced. My time as a tutor and my involvement in cybersecurity awareness initiatives have strengthened my communication and leadership abilities.
+                            </p>
+                            <p>
+                                I am not just looking for a job—I am seeking a place where I can contribute, grow, and help shape the future through technology. My journey has taught me perseverance, empathy, and the value of hard work. I am ready to bring my passion, skills, and determination to your team, and I am confident that I will be an asset who delivers results and inspires those around me.
+                            </p>
 
-                            <a rel="nofollow " class="pater " onClick="recordOutboundLink(this, 'Outbound Links', 'SenchaCodrops141117');return false; ">
-                                <div class="pater__img-wrap "><img class="pater__img " src="pater/black.png " alt="Sencha Creative " /></div>
-                            </a>
-                        </div>
-                        <div class="slideshow ">
-                            <div class="slides slides--images ">
-                                <div class="slide slide--current ">
-                                    <div class="slide__img " style="background-image: url(images/MutCisco.jpeg) "></div>
-                                </div>
-                                <div class="slide ">
-                                    <div class="slide__img " style="background-image: url(images/Russian.jpeg) "></div>
-                                </div>
-                                <div class="slide ">
-                                    <div class="slide__img " style="background-image: url(images/code\ SA.jpeg) "></div>
-                                </div>
-                                <div class="slide ">
-                                    <div class="slide__img " style="background-image: url(img/30.jpg) "></div>
-                                </div>
-                            </div>
-                            <div class="slides slides--titles ">
-                                <div class="slide slide--current ">
-                                    <h2 class="slide__title " Style="padding-bottom: 350px; "></h2>
-                                </div>
-                                <div class="slide ">
-                                    <h2 class="slide__title " Style="color:rgb(255, 253, 253) "></h2>
-                                </div>
-                                <div class="slide ">
-                                    <h2 class="slide__title "></h2>
-                                </div>
-                                <div class="slide ">
-                                    <h2 class="slide__title " Style="padding-left: 50px; padding-bottom: -100px; font-size: 50px;">I've worked with many people world wide</h2>
-                                </div>
-                            </div>
-                            <nav class="slidenav " style="font-size: xx-large; font-weight:bold; padding-bottom: 10px;">
-                                <button class="slidenav__item slidenav__item--prev "><</button>
-                                <span> </span>
-                                <button class="slidenav__item slidenav__item--next ">></button>
-                            </nav>
-                        </div>
-                    </main>
-                </div>
-
-                <div class="col-lg-8">
-                    <p style="font-size: medium;font-weight:600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                        I wish I could tell you, that I have got extensive experience as a full stack web developer and I'm the best in the business. Yeah, that would be a lie, What is not a lie however is that, as a Junior Software Developer, I bring with me solid experience
-                        in programming languages such as C#, Java, Javascript, HTML, PHP, Python, and more. I possess extensive knowledge of web development frameworks such as Angular, Ionic, and WordPress, making me an expert in creating dynamic and
-                        engaging websites for clients. My skills in Winx, GoDaddy, and other hosting and CMS platforms allow me to effectively develop and deploy scalable and customized software solutions.<br><br> Throughout my
-                        career, I have gained expertise in designing, developing, testing, and implementing software applications that meet client needs while surpassing their expectations. My experience in building responsive web applications and user-friendly
-                        interfaces has allowed me to develop software that delivers results while enhancing the user’s experience.<br><br> In summary, I am a passionate, collaborative, and detail-oriented software developer with a wide range of skills
-                        that allow me to provide innovative and high-quality solutions to clients. With my knowledge of multiple programming languages and web development frameworks, I am confident in my ability to deliver exceptional software that meets
-                        the needs and goals of clients.<br><br> In closing I would like to share that I possess a versatile skill set that includes proficiency in developing websites, web applications, and mobile applications. Additionally, I have a strong
-                        background in graphic designing for front-end development. Currently, my focus has slightly shifted towards coding and robotics for the future.
-
-                    </p>
-
-                </div>
-                <hr id="Skills" style="color: transparent;">
-            </div>
-    </section>
-
-    <!-- Skills section-->
-    <section style="padding-top: 5% ;padding-bottom: 5%;">
-        <div class="container">
-            <h1 class="text-center">Programming Skills and Experience</h1>
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card SkillsText " id="skill_cont1">
-                        <div class="card-body">
-                            <i class="fas SkillsIcon fa-clock"></i>
-                            <h4 class="card-title mt-3">Website Development</h4>
-                            <p class="card-text mt-3">I am highly skilled in website development, with experience creating custom websites using HTML, CSS and JavaScript. I have a deep understanding of the latest web technologies and an eye for design. My work is always efficient,
-                                reliable and user friendly. I am also experienced in developing back-end systems using PHP, MySQL and other server-side languages.
-                                <!--I am also experienced in developing back-end systems using PHP, MySQL and other server-side languages.-->
+                            <p>
+                            If you are seeking a developer who brings more than just generic projects like weather apps or e-commerce templates, you’ve found the right person. I don’t simply copy and edit repositories—instead, I focus on solving real-world problems by engaging directly with clients to understand their needs and building tailored solutions. My portfolio showcases functional, client-driven projects that I actively maintain and improve. I am now looking for a role where my unique combination of technical skills, creativity, and dedication to meaningful work can make a real impact.
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mt-4">
-                    <div class="card SkillsText" id="skill_cont2">
-                        <div class="card-body">
-                            <i class='fas SkillsIcon fa-layer-group'></i>
-                            <h4 class="card-title mt-3">Website Design</h4>
+            </div>
+        </div>
+        <hr id="career" style="color: transparent;">
+    </div>
+    <style>
+        .about-card {
+            box-shadow: 0 0 24px 4px rgba(255,255,255,0.25), 0 0 80px 8px rgba(255,255,255,0.10);
+            border: 0.25px solid #fffbe6 !important;
+            border-radius: 30px !important;
+            transition: 
+                box-shadow 0.4s cubic-bezier(.4,2,.6,1),
+                border-color 0.4s cubic-bezier(.4,2,.6,1),
+                transform 0.4s cubic-bezier(.4,2,.6,1);
+        }
+        .about-card:hover, .about-card:focus, .about-card:active, .about-card.glow {
+            box-shadow: 0 0 40px 8px #fffbe6, 0 0 120px 16px rgba(255,255,255,0.25);
+            border-color: #fffbe6 !important;
+            transform: scale(1.03) translateY(-6px);
+        }
+        .about-card {
+            color: #fff;
+            background: #0A0A0A;
+        }
+        .about-card .card-title,
+        .about-card .card-text,
+        .about-card .card-body,
+        .about-card a {
+            color: #fff !important;
+        }
+        .about-card a:hover {
+            color: #e0e0e0 !important;
+        }
+    </style>
+    <script>
+        // Add glow effect on scroll into view and remove on scroll out
+        document.addEventListener('DOMContentLoaded', function () {
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top < window.innerHeight &&
+                    rect.bottom > 0
+                );
+            }
+            function checkCards() {
+                document.querySelectorAll('.about-card').forEach(function(card) {
+                    if (isInViewport(card)) {
+                        card.classList.add('glow');
+                    } else {
+                        card.classList.remove('glow');
+                    }
+                });
+            }
+            window.addEventListener('scroll', checkCards);
+            checkCards();
+        });
+    </script>
+</section>
+
+<!-- Animate.css CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> 
+
+<!-- Optional: Add custom hover effects below -->
+<style>
+    .card {
+        box-shadow: 0 8px 24px rgba(34,31,40,0.15), 0 1.5px 4px rgba(34,31,40,0.10);
+        transition: box-shadow 0.3s, transform 0.3s;
+        background: #fff;
+    }
+    .card:hover {
+        box-shadow: 0 16px 32px rgba(34,31,40,0.25), 0 3px 8px rgba(34,31,40,0.15);
+        transform: translateY(-8px) scale(1.03);
+    }
+    .card-title {
+        color: #221F28;
+    }
+    @media (max-width: 991px) {
+        .col-lg-4, .col-lg-8 {
+            margin-left: 0 !important;
+        }
+    }
+</style>
+<!-- Career section-->
+    <div>
+        <hr id="career" style="color: transparent;">
+    </div>
+
+    <!-- Career Summary Section -->
+    <section class="career-summary-section aboutME-slideshow" style="background: #0f0f0f50; color: #fff; padding-top: 50px; padding-bottom: 50px;">
+        <div class="container">
+            <h1 class="text-center hero_title" style="color: #fff;">CAREER SUMMARY</h1>
+            <div class="row mt-4 justify-content-center">
+                <!-- Career Details Card (now on the left) -->
+                <div class="col-lg-8 d-flex align-items-stretch mb-4">
+                    <div class="card about-card shadow-lg animate__animated"
+                        id="career-details-card"
+                        style="border-radius: 30px; background: #0A0A0A; color: #fff; border: 4px solid #fffbe6;">
+                        <div class="card-body" style="font-size: 1.1rem;">
+                            <div style="max-height: 400px; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; position: relative;">
+                                <style>
+                                    .career-summary-section .card-body::-webkit-scrollbar {
+                                        display: none;
+                                    }
+                                </style>
+                                <p>
+                                    With over 20 years of computer experience, 10 years of self-taught coding, and more than 2 years of industry experience at OculeIT and Code SA Institute, I bring a strong foundation and real-world skills. As a Software Developer Intern, I handled tasks such as writing and testing code, fixing bugs, collaborating with team members, participating in code reviews, updating documentation, and preparing regular progress reports—everything expected from a junior developer.
+                                </p>
+                                <p>
+                                    I am now looking for a job or internship to sharpen my skills even further and gain more industry knowledge. I am eager to learn, adapt, and contribute to any team, and I am open to any opportunity where I can grow as a developer.
+                                </p>
+                                <p>
+                                    I am ready to start anytime and willing to take on any challenge. If you want someone who is passionate, unique, and always up for a new coding adventure, I am your candidate. (Why do programmers prefer dark mode? Because light attracts bugs!)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Career Image Card (now on the right) -->
+                <div class="col-lg-4 d-flex align-items-stretch mb-4">
+                    <div class="card about-card shadow-lg animate__animated"
+                        id="career-image-card"
+                        style="border-radius: 30px; overflow: hidden; background: #0A0A0A; color: #fff; border: 4px solid #fffbe6;">
+                        <img src="pater/black.png" class="card-img-top" alt="Career Image" style="object-fit: cover; height: 300px;">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-2" style="font-weight: bold; color: #fff;">Professional Journey</h4>
+                            <p class="card-text mb-1"><i class="fas fa-briefcase"></i> Software Developer</p>
+                            <p class="card-text mb-1"><i class="fas fa-chalkboard-teacher"></i> Technical Supporter</p>
+                            <p class="card-text"><i class="fas fa-shield-alt"></i> Facilitator & Tutor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr id="Skills" style="color: transparent;">
+        </div>
+    </section>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Animate fadeInLeft for details card, fadeInRight for image card when in view
+        const detailsCard = document.getElementById("career-details-card");
+        const imageCard = document.getElementById("career-image-card");
+
+        function animateOnScroll(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target === detailsCard) {
+                        detailsCard.classList.add("animate__fadeInLeft");
+                    }
+                    if (entry.target === imageCard) {
+                        imageCard.classList.add("animate__fadeInRight");
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        const observer = new IntersectionObserver(animateOnScroll, { threshold: 0.2 });
+        if (detailsCard) observer.observe(detailsCard);
+        if (imageCard) observer.observe(imageCard);
+    });
+    </script>
+
+    <!-- Skills section-->
+    <section class="skills-section-retro py-5">
+        <div class="container">
+            <h1 class="text-center hero_title mb-5 animate__animated animate__fadeInDown" style="color: #fff;">SKILLS & EXPERIENCE</h1>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card skill-card-retro animate__animated" style="--animate-delay: 0.1s;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-clock SkillsIcon mb-3" style="font-size: 2.5rem; color: #FFB86C;"></i>
+                            <h4 class="card-title mt-2" style="color: #FFB86C;">Website Development</h4>
+                            <p class="card-text mt-3">I am highly skilled in website development, with experience creating custom websites using HTML, CSS and JavaScript. I have a deep understanding of the latest web technologies and an eye for design. My work is always efficient,
+                                reliable and user friendly. I am also experienced in developing back-end systems using PHP, MySQL and other server-side languages.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card skill-card-retro animate__animated" style="--animate-delay: 0.2s;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-layer-group SkillsIcon mb-3" style="font-size: 2.5rem; color: #8AFF80;"></i>
+                            <h4 class="card-title mt-2" style="color: #8AFF80;">Website Design</h4>
                             <p class="card-text mt-3">I have a strong understanding of web design principles, and I am confident in creating engaging, visually appealing websites that are user-friendly and optimized for search engines. I am comfortable working with HTML/CSS, JavaScript,
                                 jQuery and popular content management systems such as WordPress and Godaddy.
                             </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card SkillsText" id="skill_cont3">
-                        <div class="card-body">
-                            <i class='fas SkillsIcon fa-mobile'></i>
-                            <h4 class="card-title mt-3">Mobile Applications</h4>
+                <div class="col-lg-4">
+                    <div class="card skill-card-retro animate__animated" style="--animate-delay: 0.3s;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile SkillsIcon mb-3" style="font-size: 2.5rem; color: #80FFEA;"></i>
+                            <h4 class="card-title mt-2" style="color: #80FFEA;">Mobile Applications</h4>
                             <p class="card-text mt-3">I am experienced in developing mobile applications for both Android and Apple devices. I have a strong understanding of the development process and an eye for detail when it comes to design. I am comfortable working with different
                                 programming languages such as Java, Python and C#, as well as popular mobile development tools like Ionic, Angular and Flutter.
                             </p>
@@ -265,206 +1383,796 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card SkillsText" id="skill_cont4">
-                        <div class="card-body">
-                            <i class='fas SkillsIcon fa-star'></i>
-                            <h4 class="card-title mt-3">Proficient</h4>
+            <div class="row g-4 mt-2">
+                <div class="col-lg-4">
+                    <div class="card skill-card-retro animate__animated" style="--animate-delay: 0.4s;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-clock SkillsIcon mb-3" style="font-size: 2.5rem; color: #FFB86C;"></i>
+                            <h4 class="card-title mt-2" style="color: #FF61A6;">Proficient</h4>
                             <p class="card-text mt-3">
                                 Languages and technologies that I am confident working with.
                             </p>
-                            <ul>
-                                Java /Python/ C#/ PhP/ HTML_5/ CSS/ Javascript/ Bootstrap 5/ Vanilla.js/ JQuery SQL /Visual Studio/ VS Code/ ATOM /NetBeans/ MYSQL /XAMPP Apache
+                            <ul class="list-unstyled" style="color: #fffbe6;">
+                                <li>Java / Python / C# / PHP / HTML5 / CSS / JavaScript / Bootstrap 5</li>
+                                <li>Vanilla.js / JQuery / SQL / Visual Studio / VS Code / ATOM</li>
+                                <li>NetBeans / MYSQL / XAMPP Apache</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card SkillsText" id="skill_cont5">
-                        <div class="card-body">
-                            <i class='fas SkillsIcon fa-bell'></i>
-                            <h4 class="card-title mt-3">Basic Knowledge</h4>
+                <div class="col-lg-4">
+               <div class="card skill-card-retro animate__animated" style="--animate-delay: 0.5s;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-layer-group SkillsIcon mb-3" style="font-size: 2.5rem; color: #8AFF80;"></i>
+                            <h4 class="card-title mt-2" style="color: #FFD700;">Basic Knowledge</h4>
                             <p class="card-text mt-3">
                                 Languages that I unofficially worked with through online tutorials and side projects
                             </p>
-                            <ul>
-                                Flask/ Fast API/ Angular/ TypeScript/ Ionic/ Node.js/ Angular/ GitHub/ Heroku/ Docker/ Firebase/ Reactor/ Cordova/ Linux Ubuntu
+                            <ul class="list-unstyled" style="color: #fffbe6;">
+                                <li>Flask / Fast API / Angular / TypeScript / Ionic / Node.js</li>
+                                <li>GitHub / Heroku / Docker / Firebase / Reactor / Cordova / Linux Ubuntu</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card SkillsText" id="skill_cont6">
-                        <div class="card-body">
-                            <i class='fas SkillsIcon fa-book'></i>
-                            <h4 class="card-title mt-3">Premature Knowledge</h4>
+                <div class="col-lg-4">
+                    <div class="card skill-card-retro animate__animated" style="--animate-delay: 0.6s;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile SkillsIcon mb-3" style="font-size: 2.5rem; color: #00E1FF;"></i>
+                            <h4 class="card-title mt-2" style="color: #00E1FF;">Premature Knowledge</h4>
                             <p class="card-text mt-3">
                                 This is the list of languages and technologies that I would like to learn in the near future
                             </p>
-                            <ul>
-                                AI/ Blockly/ ROS/ C++/ MATLAB/ Lua/ Heroku/ Docker/ Azure/ AWS/ Kali-linux/ Ethical Hacking/ Penetration testing/ Data science
+                            <ul class="list-unstyled" style="color: #fffbe6;">
+                                <li>AI / Blockly / ROS / C++ / MATLAB / Lua / Heroku / Docker</li>
+                                <li>Azure / AWS / Kali-linux / Ethical Hacking / Penetration testing / Data science</li>
                             </ul>
                         </div>
                     </div>
-
                 </div>
-        </section>
+            </div>
+        </div>
+        <style>
+            .skills-section-retro {
+                background: linear-gradient(135deg, #000000 0%, #000000 100%);
+            }
+            .skill-card-retro {
+                border-radius: 24px;
+                border: none;
+                background: linear-gradient(135deg, #0A0A0A 80%, #0A0A0A 100%);
+                color: #fff;
+                box-shadow:
+                    0 0 0 0.50px #fffbe6,
+                    0 0 12px 0.25px #fffbe6;
+                transition: 
+                    box-shadow 0.4s cubic-bezier(.4,2,.6,1),
+                    transform 0.4s cubic-bezier(.4,2,.6,1);
+                position: relative;
+                overflow: hidden;
+                opacity: 0;
+                transform: scale(0.85) rotateY(30deg);
+            }
+            .skill-card-retro.show {
+                opacity: 1;
+                transform: scale(1) rotateY(0deg);
+                animation: cardPopIn 1s cubic-bezier(.4,2,.6,1) forwards;
+            }
+            @keyframes cardPopIn {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.85) rotateY(30deg);
+                    filter: blur(4px) brightness(0.7);
+                }
+                60% {
+                    opacity: 1;
+                    transform: scale(1.05) rotateY(-8deg);
+                    filter: blur(0px) brightness(1.1);
+                }
+                80% {
+                    transform: scale(0.98) rotateY(4deg);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1) rotateY(0deg);
+                    filter: blur(0px) brightness(1);
+                }
+            }
+            .skill-card-retro:hover, .skill-card-retro:focus, .skill-card-retro:active {
+                box-shadow:
+                    0 0 0 4px #fffbe6,
+                    0 0 24px 6px #fffbe6,
+                    0 0 80px 12px #2ac6a7;
+                transform: scale(1.07) rotate(-2deg);
+                z-index: 2;
+                animation: cardWobble 0.7s;
+            }
+            @keyframes cardWobble {
+                0% { transform: scale(1.07) rotate(-2deg);}
+                20% { transform: scale(1.09) rotate(2deg);}
+                40% { transform: scale(1.06) rotate(-1deg);}
+                60% { transform: scale(1.08) rotate(1deg);}
+                100% { transform: scale(1.07) rotate(-2deg);}
+            }
+            .skill-card-retro .card-title {
+                font-family: 'Orbitron', 'Montserrat', monospace;
+                letter-spacing: 1px;
+                font-weight: bold;
+                text-shadow: 0 2px 8px #00000060;
+            }
+            .skill-card-retro .SkillsIcon {
+                filter: drop-shadow(0 0 8px #fffbe6);
+                animation: retro-glow 2s infinite alternate, iconSpin 2.5s cubic-bezier(.4,2,.6,1) infinite alternate;
+                transition: transform 0.3s;
+            }
+            .skill-card-retro:hover .SkillsIcon {
+                transform: scale(1.2) rotate(-12deg);
+                animation: retro-glow 1s infinite alternate, iconBounce 0.8s;
+            }
+            @keyframes retro-glow {
+                0% { filter: drop-shadow(0 0 8px #fffbe6); }
+                100% { filter: drop-shadow(0 0 16px #fffbe6); }
+            }
+            @keyframes iconSpin {
+                0% { transform: rotate(0deg);}
+                100% { transform: rotate(8deg);}
+            }
+            @keyframes iconBounce {
+                0% { transform: scale(1.2) rotate(-12deg);}
+                50% { transform: scale(1.35) rotate(8deg);}
+                100% { transform: scale(1.2) rotate(-12deg);}
+            }
+            .skill-card-retro ul {
+                margin-top: 1rem;
+                font-size: 1rem;
+                padding-left: 0;
+            }
+            .skill-card-retro ul li {
+                margin-bottom: 0.25rem;
+                font-family: 'Fira Mono', monospace;
+            }
+            @media (max-width: 991px) {
+                .skill-card-retro {
+                    margin-bottom: 2rem;
+                }
+            }
+        </style>
+        <script>
+            // Animate cards in with creative effect on scroll
+            document.addEventListener("DOMContentLoaded", function () {
+                const cards = document.querySelectorAll('.skill-card-retro');
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach((entry, idx) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('show');
+                            }, idx * 120); // Staggered reveal
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.18 });
+                cards.forEach(card => observer.observe(card));
+            });
+        </script>
+    </section>
     <hr id="portfolio" style="color: transparent;">
     <!-- portfolio section-->
-    <section style="background:url(./images/code.jpg);background-repeat: round; padding-bottom: 5%; padding-top: -5%;">
-        <div class="container mt-3">
-            <h1 class="text-center" style="color:azure; font-size: 60px; font-weight: bolder; padding-bottom: -15%; padding-top: 5%;">Portfolio</h1>
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage3.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">My Github Page</h4>
-                            <p class="card-text">My GitHub repository are well organized, making it easy to find the information you need. The code is well-documented, providing a clear understanding of how everything works.</p>
-                            <div class="text-center">
-                                <a href="https://github.com/Siphelele-Maphumulo/Portfolio" target="_blank" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
+    <section style="background: #0f0f0f50; padding-bottom: 2%; padding-top: 1%;">
+      <div class="container mt-3 aboutME-slideshow">
+        <h1 class="text-center hero_title mb-5 animate__animated animate__fadeInDown" style="color:azure; font-size: 40px; font-weight: bolder;">PORFOLIO</h1>
+        <div class="row g-4">
+          <div class="col-lg-4 mt-4 d-flex align-items-stretch">
+            <div class="card about-card shadow-lg animate__animated animate__zoomIn" style="background: #0A0A0A; border-radius: 24px; color: #fff; border: 4px solid #fffbe6;">
+              <img class="card-img-top" src="images/portfolioImage3.jpg" alt="Card image" style="width:100%; object-fit: cover; height: 220px;">
+              <div class="card-body d-flex flex-column">
+                <h4 class="card-title" style="font-weight: bold; color: #fff;">My Github Page</h4>
+                <p class="card-text flex-grow-1">My GitHub repositories are well organized, making it easy to find the information you need. The code is well-documented, providing a clear understanding of how everything works.</p>
+                <div class="text-center mt-3">
+                  <a href="https://github.com/Siphelele-Maphumulo" target="_blank" class="btn btn-success">Link</a>
                 </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage4.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">My Youtube Channel</h4>
-                            <p class="card-text">My coding videos on my YouTube channel are helping to inspire and educate others in the world of programming. I provide valuable content that is making a difference in people’s lives, and that’s something I am proud of!</p>
-                            <div class="text-center">
-                                <a href="https://www.youtube.com/channel/UCrljXUE6Wkj356W3zOg3zyA" target="_blank" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <img class="card-img-top" src="images/portfolioImage1.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">My Projects</h4>
-                            <p class="card-text">My projects in programming demonstrate excellent problem-solving skills and creative thinking. I have a knack for finding efficient solutions to complex coding challenges, and your attention to detail ensures that all of my
-                                code is well-structured and optimized for performance. My work is a testament to the dedication I bring to each project, ensuring its success.</p>
-                            <div class="text-center">
-                                <a href="wProjects.html" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <div style="margin-bottom: 24px;"></div>
+              </div>
             </div>
+          </div>
 
+          <div class="col-lg-4 mt-4 d-flex align-items-stretch">
+            <div class="card about-card shadow-lg animate__animated animate__zoomIn" style="background: #0A0A0A; border-radius: 24px; color: #fff; border: 4px solid #fffbe6;">
+              <img class="card-img-top" src="images/portfolioImage4.jpg" alt="Card image" style="width:100%; object-fit: cover; height: 220px;">
+              <div class="card-body d-flex flex-column">
+                <h4 class="card-title" style="font-weight: bold; color: #fff;">My Youtube Channel</h4>
+                <p class="card-text flex-grow-1">My coding videos on my YouTube channel help inspire and educate others in the world of programming. I provide valuable content that makes a difference in people’s lives, and that’s something I am proud of!</p>
+                <div class="text-center mt-3">
+                  <a href="https://www.youtube.com/channel/UCrljXUE6Wkj356W3zOg3zyA/" target="_blank" class="btn btn-success">Link</a>
+                </div>
+                <div style="margin-bottom: 24px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 d-flex align-items-stretch">
+            <div class="card about-card shadow-lg animate__animated animate__zoomIn" style="background: #0A0A0A; border-radius: 24px; color: #fff; border: 4px solid #fffbe6;">
+              <img class="card-img-top" src="images/portfolioImage1.jpg" alt="Card image" style="width:100%; object-fit: cover; height: 220px;">
+              <div class="card-body d-flex flex-column">
+                <h4 class="card-title" style="font-weight: bold; color: #fff;">My Projects</h4>
+                <p class="card-text flex-grow-1">My projects demonstrate excellent problem-solving skills and creative thinking. I find efficient solutions to complex coding challenges, and my attention to detail ensures all code is well-structured and optimized for performance.</p>
+                <div class="text-center mt-3">
+                  <a href="Project.html" class="btn btn-success">Link</a>
+                </div>
+                <div style="margin-bottom: 24px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        .about-card {
+          box-shadow: 0 0 24px 4px rgba(255,255,255,0.25), 0 0 80px 8px rgba(255,255,255,0.10);
+          border: 0.25px solid #fffbe6 !important;
+          border-radius: 24px !important;
+          transition: 
+            box-shadow 0.4s cubic-bezier(.4,2,.6,1),
+            border-color 0.4s cubic-bezier(.4,2,.6,1),
+            transform 0.4s cubic-bezier(.4,2,.6,1);
+          background: #0A0A0A !important;
+          color: #fff !important;
+        }
+        .about-card:hover, .about-card:focus, .about-card:active, .about-card.glow {
+          box-shadow: 0 0 30px 8px #fffbe6, 0 0 120px 16px rgba(255,255,255,0.25);
+          border-color: #fffbe6 !important;
+          transform: scale(1.03) translateY(-6px);
+        }
+        .about-card .card-title,
+        .about-card .card-text,
+        .about-card .card-body,
+        .about-card a {
+          color: #fff !important;
+        }
+        .about-card a:hover {
+          color: #e0e0e0 !important;
+        }
+      </style>
     </section>
     <div>
         <hr id="contact" style="color: transparent;">
     </div>
-    <!-- contact section-->
-    <section>
-        <div class="container mt-3 contactContent">
-            <h1 class="text-center">Contact Me</h1>
 
-            <div class="row mt-4">
-                <div class="col-lg-6">
-                    <!-- to edit google map goto https://www.embed-map.com type your location, generate html code and copy the html  -->
-                    <div style="max-width:100%;overflow:hidden;color:red;width:500px;height:500px;">
-                        <div id="embedmap-canvas" style="height:100%; width:100%;max-width:100%;">
-                            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=15%20108054%20St,%20Umlazi%20S,%20Umlazi,%204089+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>
-                        </div>
-                        <a class="googlemaps-html" href="https://www.embed-map.com" id="get-data-forembedmap">https://www.embed-map.com</a>
-                        <style>
-                            #embedmap-canvas img {
-                                max-width: none!important;
-                                background: none!important;
-                                font-size: inherit;
-                                font-weight: inherit;
-                            }
-                        </style>
-                    </div>
-                </div>
-
-                <div class="col-lg-6" style="padding-bottom: 5%;">
-                    <!-- form fields -->
-                    <form action="https://formspree.io/f/mpzepvez" method="post" autocomplete="off" enctype="multipart/form-data">
-                        <input type="text" id="Name" name="name" class="form-control form-control-lg" placeholder="Name">
-                        <input type="text" id="Surname" name="surname" class="form-control form-control mt-3" placeholder="Surname ">
-                        <input type="text " id="Contact " name="contact " class="form-control form-control mt-3" placeholder="Contact ">
-                        <input type="email " id="Email " name="email " class="form-control mt-3 " placeholder="Email ">
-                        <input type="text " id="Subject " name="subject " class="form-control mt-3 " placeholder="Subject ">
-                        <div class="mb-2 mt-3 ">
-                            <textarea class="form-control " rows="5 " id="comment " name="text " placeholder="Message "></textarea>
-                        </div>
-                        <input type="submit " value="Submit " class="btn btn-success mt-3 "></button>
-                    </form>
-                    <!--<button type="button " class="btn btn-success mt-3 ">Contact Me</button>-->
-
-
-                </div>
-
-            </div>
-        </div>
-    </section>
     <!-- footer section-->
 
-    <footer class="text-center " style="background-color:rgb(0, 0, 0);">
-        <section class="d-flex justify-content-between p-4" id="section1">
-            <div class="container text-center text-md-start mt-4" style="color:rgb(122, 122, 122)">
-                <div class="row mt-3">
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold">
-                            <i class="fa fa-github mr-3"></i>
-                            <a href="https://github.com/Siphelele-Maphumulo" target="_blank">&nbsp Siphelele A. Maphumulo</a>
-                        </h6>
+<!-- Scroll to Top Button -->
+<button id="scrollToTop" aria-label="Scroll to top" style="background:#2ac6a7;  border:none; border-radius:50%; width:44px; height:44px; display:flex; align-items:center; justify-content:center; font-size:20px; color:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.08); transition:background 0.2s;">
 
+  <i class="fas fa-arrow-up"></i>
+</button>
+<!-- Contact Section -->
+<section class="contact-section" id="contact" style="padding-top: 60px; color: #fff;">
+    <div class="container text-center" style="max-width: 800px; margin: auto;">
+        <h2 class="section-heading text-uppercase" style="color: #fff; letter-spacing: 2px; font-weight: bold;">Contact Me</h2>
+        <h3 class="" style="color: #fff; margin-bottom: 32px;">
+            Drop me a line via email for inquiries or collaborations
+        </h3>
+
+        <form id="contactForm" style="width: 100%;">
+            <div class="row align-items-stretch mb-5 text-start">
+                <!-- Left Column Inputs -->
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Your Name *" required style="background: #181818; color: #fff; border: 1px solid #fffbe6;" />
+                        <div class="invalid-feedback">A name is required.</div>
                     </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="Your Email *" required style="background: #181818; color: #fff; border: 1px solid #fffbe6;" />
+                        <div class="invalid-feedback">An email is required.</div>
+                        <div class="invalid-feedback" style="display: none;">Email is not valid.</div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required style="background: #181818; color: #fff; border: 1px solid #fffbe6;" />
+                        <div class="invalid-feedback">A phone number is required.</div>
+                    </div>
+                </div>
 
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <h6 class="text-uppercase fw-bold">Contact</h6>
-
-                        <p>
-                            <i class="fa fa-home mr-3"></i>
-                            <a href="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=15%20108054%20St,%20Umlazi%20S,%20Umlazi,%204089+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" target="_blank "> S210 Umlazi, 4066, Durban</a>
-                        </p>
-                        <p>
-                            <i class="fa fa-envelope mr-3 "></i><a href="mailto:siphelelemaphumulo@gmail.com " target="_blank " class="c-footer-address__email "> Siphelelemaphumulo@gmail.com</a>
-                        </p>
-                        <p>
-                            <i class="fa fa-linkedin-square mr-3 "></i
-                  ><a
-                    href="https://www.linkedin.com/in/siphelele-maphumulo-52a787355/ "
-                    target="_blank "
-                    rel="noopener noreferrer "
-                  >
-                    Siphelele Maphumulo
-                  </a>
-                </p>
-              </div>
-              <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4 ">
-                <h6 class="text-uppercase fw-bold ">References</h6>
-                <p>
-                  <i class="fa fa-user-secret fa-2x "></i> To protect personal information, References are available on request.
-                        </p>
+                <!-- Right Column Textarea -->
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-0">
+                        <textarea class="form-control" id="message" placeholder="Your Message *" required style="background: #181818; color: #fff; border: 1px solid #fffbe6; min-height: 150px;"></textarea>
+                        <div class="invalid-feedback">A message is required.</div>
                     </div>
                 </div>
             </div>
-        </section>
-        <div id="copyright " class="text-center " style="color: aliceblue; ">
-            © <i>2020 Created by: Siphelele Audicious Maphumulo</i>
+
+            <!-- Submission Messages -->
+            <div id="submitSuccessMessage" class="d-none text-center text-white mb-3">
+                <div class="fw-bolder">Form submission successful!</div>
+            </div>
+            <div id="submitErrorMessage" class="d-none text-center text-danger mb-3">
+                Error sending message!
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit" disabled style="background: #2ac6a7; border-radius: 20px; border: none; font-weight: bold;">
+                    Send Message
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+  
+<!-- Footer Content as Cards -->
+<footer>
+    <div class="footer-container">
+        <div class="row footer-content" style="gap: 30px;">
+            <!-- About Me Card -->
+            <div class="col-md-3 footer-column" style="text-align:center">
+                <div class="card about-card shadow-lg" style="background: #0A0A0A; color: #fff; border: 2px solid #fffbe6; border-radius: 18px;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: var(--secondary-color); font-weight: 600;">About Me</h3>
+                        <p class="card-text">I am Siphelele Audacious Maphumulo, a passionate software developer dedicated to building innovative solutions and helping others grow in tech.</p>
+                        <p class="card-text">I believe in continuous learning, collaboration, and making a positive impact through technology.</p>
+                        <p class="card-text"><i class="fas fa-clock"></i> Available: Mon–Fri 08:00–18:00</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Skills Card -->
+            <div class="col-md-3 footer-column">
+                <div class="card about-card shadow-lg" style="background: #0A0A0A; color: #fff; border: 2px solid #fffbe6; border-radius: 18px;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: var(--secondary-color); font-weight: 600;">Skills</h3>
+                        <ul class="service-list" style="margin-bottom: 0;">
+                            <li>Full Stack Development</li>
+                            <li>Web & Mobile Apps</li>
+                            <li>UI/UX Design</li>
+                            <li>Database Management</li>
+                            <li>Mentorship & Tutoring</li>
+                            <li>Cybersecurity Awareness</li>
+                            <li>Technical Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Latest Projects Card -->
+            <div class="col-md-3 footer-column">
+                <div class="card about-card shadow-lg" style="background: #0A0A0A; color: #fff; border: 2px solid #fffbe6; border-radius: 18px;">
+                    <div class="card-body" style="text-align:center">
+                        <h3 class="card-title" style="color: var(--secondary-color); font-weight: 600;">Latest Projects</h3>
+                        <!-- Top Project 1 Placeholder -->
+                        <div class="project-placeholder" style="margin-bottom: 12px;">
+                            <strong>Online Learning App</strong>
+                            <p class="card-text">
+                                <a href="https://online-test-web-application-7mu3.onrender.com" target="_blank" style="color:#2ac6a7;text-decoration:underline;">
+                                    https://online-test-web-application-7mu3.onrender.com
+                                </a>
+                            </p>
+                            </div>
+                            <!-- Top Project 2 Placeholder -->
+                            <div class="project-placeholder" style="margin-bottom: 12px;">
+                                <strong>Environmental Health App</strong>
+                                <p class="card-text">
+                                    <a href="http://virtualincubation.infinityfreeapp.com/" target="_blank" style="color:#2ac6a7;text-decoration:underline;">
+                                        http://virtualincubation.infinityfreeapp.com/
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- Top Project 3 Placeholder -->
+                            <div class="project-placeholder" style="margin-bottom: 12px;">
+                                <strong>Music Store Website</strong>
+                                <p class="card-text">
+                                    <a href="https://siphelele-maphumulo.github.io/Hardware/" target="_blank" style="color:#2ac6a7;text-decoration:underline;">
+                                        https://siphelele-maphumulo.github.io/Hardware/
+                                    </a>
+                                </p>
+                            </div>
+                        <p class="card-text">Visit my <a href="https://github.com/Siphelele-Maphumulo" target="_blank" style="color:#2ac6a7;text-decoration:underline;">GitHub</a> for recent code and solutions.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Me Card -->
+            <div class="col-md-3 footer-column">
+                <div class="card about-card shadow-lg" style="background: #0A0A0A; color: #fff; border: 2px solid #fffbe6; border-radius: 18px;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: var(--secondary-color); font-weight: 600; text-align:center">Contact Me</h3>
+                        <div class="contact-info">
+                            <p class="card-text"><i class="fas fa-map-marker-alt"></i> Durban, South Africa</p>
+                            <p class="card-text"><i class="fas fa-phone-alt"></i> 068 676 4623</p>
+                            <p class="card-text" style="text-align: center; justify-content:center"><a href="mailto:Siphelelemaphumulo@gmail.com" style="color:#2ac6a7;text-decoration:underline; margin-left: -20px; font-size: 9pt;">Siphelelemaphumulo@gmail.com</a></p>
+                        </div>
+                        <!-- Newsletter Subscription Button -->
+                        <button id="newsletterButton" class="newsletter-btn" style="margin-top: 15px;">
+                            Subscribe to Newsletter
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                        <!-- Newsletter Modal -->
+                        <div id="newsletterModal" class="modal-overlay">
+                            <div class="modal-content">
+                                <button class="close-modal">&times;</button>
+                                <h2>Stay Updated with My Journey</h2>
+                                <iframe class="newsletter-iframe"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
+  
+    <!-- Footer Bottom -->
+    <div class="footer py-4">
+      <div class="footer-container">
+  
+        <div class="footer-bottom-row">
+          <div class="footer-bottom-col">
+            <img src="./images/black.png" style="width: 80px; height:auto" alt="SMMEs Logo" />
+            <h5>©2024 SA MAPHUMULO PROFILE </h5>
+          </div>
 
-    <!-- load javascript after loading all html content -->
-    <script src="script/script.js "></script>
-    <script src="js/demo.js "></script>
-    <script src="js/imagesloaded.pkgd.min.js "></script>
-    <script src="js/anime.min.js "></script>
-    <script src="js/demo4.js "></script>
+  
+          <div class="footer-bottom-col">
+            <div class="social-icons">
+              <a href="https://www.linkedin.com/in/siphelele-maphumulo-52a787355/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.youtube.com/channel/UCrljXUE6Wkj356W3zOg3zyA/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="footer-bottom-row">
+          <p>
+            The objective of this profile is to showcase the skills, experience, and professional journey of Siphelele Audacious Maphumulo in software development in the tech industry.
+          </p>
+        </div>
+  
+      </div>
+    </div>
+  </footer>
+  
 
-</body>
+<!-- Scripts -->
+<script src="js/validation.js"></script>
 
+<script>
+
+    // Scroll to Top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+    
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsletterBtn = document.getElementById('newsletterButton');
+        const newsletterModal = document.getElementById('newsletterModal');
+        const closeModalBtn = newsletterModal.querySelector('.close-modal');
+        const iframe = newsletterModal.querySelector('.newsletter-iframe');
+
+        function openNewsletterModal() {
+            document.body.classList.add('modal-open');
+            newsletterModal.classList.add('active');
+            newsletterModal.style.display = "flex"; // Show modal
+            iframe.src = "newsletter.html";
+            setTimeout(() => closeModalBtn.focus(), 100);
+        }
+
+        function closeNewsletterModal() {
+            document.body.classList.remove('modal-open');
+            newsletterModal.classList.remove('active');
+            newsletterModal.style.display = "none"; // Hide modal
+            iframe.src = "";
+            newsletterBtn.focus();
+        }
+
+        if (newsletterBtn) {
+            newsletterBtn.addEventListener('click', openNewsletterModal);
+            closeModalBtn.addEventListener('click', closeNewsletterModal);
+            newsletterModal.addEventListener('click', function(e) {
+                if (e.target === newsletterModal) closeNewsletterModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && newsletterModal.classList.contains('active')) {
+                    closeNewsletterModal();
+                }
+            });
+        }
+    });
+</script>
+
+<script>
+
+ document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".mobile-menu-btn");
+    const navLinks = document.getElementById("nav-links");
+
+    menuButton.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", function (event) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        const dropdownButtons = document.querySelectorAll(".dropbtn");
+
+        let isDropdownButton = Array.from(dropdownButtons).some(button => button.contains(event.target));
+        let isDropdownContent = Array.from(dropdowns).some(dropdown => dropdown.contains(event.target));
+
+        if (!isDropdownButton && !isDropdownContent) {
+            dropdowns.forEach(dropdown => dropdown.style.display = "none");
+        }
+    });
+
+    document.querySelectorAll(".dropbtn").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const dropdown = this.nextElementSibling;
+            document.querySelectorAll(".dropdown-content").forEach(d => {
+                if (d !== dropdown) d.style.display = "none"; // Close other dropdowns
+            });
+
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        // Only prevent default if href is not just #
+        if (this.getAttribute('href') !== '#') {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return; // Skip if href is just #
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks) navLinks.classList.remove('show');
+            }
+        }
+    });
+});
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show/hide the scroll-to-top button based on scroll position
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) { // Adjust the scroll offset as needed
+                scrollToTopButton.classList.add('show'); // Show the button
+            } else {
+                scrollToTopButton.classList.remove('show'); // Hide the button
+            }
+        });
+    
+        // Smooth scroll to the top when the button is clicked
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default anchor action
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll
+            });
+        });
+    });
+      
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const coreBoxes = document.querySelectorAll(".core-box");
+  
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            obs.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, { threshold: 0.2 });
+  
+      coreBoxes.forEach(box => observer.observe(box));
+    });
+  </script>
+  
+  <!--  digital-section  -->
+
+
+<script>
+    let container = document.querySelector(".slide-track");
+
+    function createSlides(start, end) {
+        for (let i = start; i <= end; i++) {
+            let slide = document.createElement("div");
+            slide.classList.add("slide");
+            slide.innerHTML = `<img src="assets/logos/${i}.png" alt="Partner ${i}" loading="lazy" />`;
+            container.appendChild(slide);
+        }
+    }
+
+    createSlides(1, 40); // Ascending
+    createSlides(40, 1); // Descending
+    createSlides(1, 40); // Duplicate Ascending
+    createSlides(40, 1); // Duplicate Descending
+</script>
+
+<!-- Toggle Menu Script -->
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+      }
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        const dropbtn = document.querySelector('.dropbtn');
+        const dropdown = document.querySelector('.dropdown');
+      
+        dropbtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+        });
+      });
+      
+  </script>
+    <script>  
+        document.addEventListener("DOMContentLoaded", function () {  
+            const options = {  
+                threshold: 0.3, // Adjusts when the animation should trigger  
+            };  
+
+            const observer = new IntersectionObserver((entries, observer) => {  
+                entries.forEach(entry => {  
+                    if (entry.isIntersecting) {  
+                        entry.target.classList.add("show");  
+                    }  
+                });  
+            }, options);  
+
+            // Target all hidden elements that need animations  
+            const hiddenElements = document.querySelectorAll(".hidden-left, .hidden-right");  
+            hiddenElements.forEach(el => observer.observe(el));  
+        });  
+    </script> 
+    
+    <!-- Team -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const teamCards = document.querySelectorAll(".team-card");
+      
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-team");
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            threshold: 0.4,
+          });
+      
+          teamCards.forEach(card => {
+            if (card.classList.contains("hidden-team")) {
+              observer.observe(card);
+            }
+          });
+        });
+      </script>
+      
+    <!-- Service -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const serviceItems = document.querySelectorAll(".service-item");
+      
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-service");
+                entry.target.classList.remove("fade-out");
+              } else {
+                entry.target.classList.remove("animate-service");
+                entry.target.classList.add("fade-out");
+              }
+            });
+          }, {
+            threshold: 0.3,
+          });
+      
+          serviceItems.forEach(item => {
+            observer.observe(item);
+          });
+        });
+      </script>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const footerColumns = document.querySelectorAll(".footer-column");
+      
+          const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-footer");
+                entry.target.classList.remove("fade-out");
+              } else {
+                entry.target.classList.remove("animate-footer");
+                entry.target.classList.add("fade-out");
+              }
+            });
+          }, {
+            threshold: 0.2,
+          });
+      
+          footerColumns.forEach(column => {
+            footerObserver.observe(column);
+          });
+        });
+      </script>
+<!-- Scripts -->
+<script src="js/validation.js"></script>
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsletterBtn = document.getElementById('newsletterButton');
+        const newsletterModal = document.getElementById('newsletterModal');
+        const closeModalBtn = newsletterModal.querySelector('.close-modal');
+        const iframe = newsletterModal.querySelector('.newsletter-iframe');
+
+        function openNewsletterModal() {
+            document.body.classList.add('modal-open');
+            newsletterModal.classList.add('active');
+            newsletterModal.style.display = "flex"; // Show modal
+            iframe.src = "newsletter.html";
+            setTimeout(() => closeModalBtn.focus(), 100);
+        }
+
+        function closeNewsletterModal() {
+            document.body.classList.remove('modal-open');
+            newsletterModal.classList.remove('active');
+            newsletterModal.style.display = "none"; // Hide modal
+            iframe.src = "";
+            newsletterBtn.focus();
+        }
+
+        if (newsletterBtn) {
+            newsletterBtn.addEventListener('click', openNewsletterModal);
+            closeModalBtn.addEventListener('click', closeNewsletterModal);
+            newsletterModal.addEventListener('click', function(e) {
+                if (e.target === newsletterModal) closeNewsletterModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && newsletterModal.classList.contains('active')) {
+                    closeNewsletterModal();
+                }
+            });
+        }
+    });
+</script>
+      
+  
+    </body>
 </html>

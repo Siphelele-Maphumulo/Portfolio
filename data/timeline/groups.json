@@ -1,0 +1,38 @@
+[
+  {
+    "id": "january",
+    "layout": "horizontal",
+    "label": "month__abbreviation-january",
+    "ratio": 1.2,
+    "posts": [
+      0, 1, 2, 3
+    ]
+  },
+  {
+    "id": "february",
+    "layout": "vertical",
+    "label": "month__abbreviation-february",
+    "ratio": 1.0,
+    "posts": [
+      0, 1, 2, 3
+    ]
+  },
+  {
+    "id": "march",
+    "layout": "horizontal",
+    "label": "month__abbreviation-march",
+    "ratio": 1.2,
+    "posts": [
+      0, 1, 2, 3
+    ]
+  },
+  {
+    "id": "april",
+    "layout": "vertical",
+    "label": "month__abbreviation-april",
+    "ratio": 1.0,
+    "posts": [
+      0, 1, 2, 3
+    ]
+  }
+]

@@ -705,3 +705,27 @@ a.demo--current {
     width: 100%;
     height: 100%;
 }
+/* Enable hover dropdown for the navbar */
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    animation: fadeIn 0.3s; /* Optional fade-in animation */
+}
+
+/* Optional fade-in animation for dropdown menus */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.icons-container {
+    display: flex;
+    justify-content: flex-end; /* Push icons to the far right */
+    gap: 10px; /* Add space between the icons */
+    align-items: center; /* Align icons vertically */
+}
