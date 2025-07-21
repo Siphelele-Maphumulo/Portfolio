@@ -1642,59 +1642,190 @@ document.addEventListener('DOMContentLoaded', function () {
 
   <i class="fas fa-arrow-up"></i>
 </button>
-<!-- Contact Section -->
 <section class="contact-section" id="contact" style="padding-top: 60px; color: #fff;">
-    <div class="container text-center" style="max-width: 800px; margin: auto;">
-        <h2 class="section-heading text-uppercase" style="color: #fff; letter-spacing: 2px; font-weight: bold;">Contact Me</h2>
-        <h3 class="" style="color: #fff; margin-bottom: 32px;">
-            Drop me a line via email for inquiries or collaborations
-        </h3>
+  <div class="container text-center" style="max-width: 800px; margin: auto;">
+    <h2 class="section-heading text-uppercase" style="color: #fff; letter-spacing: 2px; font-weight: bold;">Contact Me</h2>
+    <h3 style="color: #fff; margin-bottom: 32px;">
+      Drop me a line via email for inquiries or collaborations
+    </h3>
 
-        <form id="contactForm" style="width: 100%;">
-            <div class="row align-items-stretch mb-5 text-start">
-                <!-- Left Column Inputs -->
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
-                        <input class="form-control" id="name" type="text" placeholder="Your Name *" required style="background: #181818; color: #fff; border: 1px solid #fffbe6;" />
-                        <div class="invalid-feedback">A name is required.</div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <input class="form-control" id="email" type="email" placeholder="Your Email *" required style="background: #181818; color: #fff; border: 1px solid #fffbe6;" />
-                        <div class="invalid-feedback">An email is required.</div>
-                        <div class="invalid-feedback" style="display: none;">Email is not valid.</div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required style="background: #181818; color: #fff; border: 1px solid #fffbe6;" />
-                        <div class="invalid-feedback">A phone number is required.</div>
-                    </div>
-                </div>
-
-                <!-- Right Column Textarea -->
-                <div class="col-md-6">
-                    <div class="form-group form-group-textarea mb-0">
-                        <textarea class="form-control" id="message" placeholder="Your Message *" required style="background: #181818; color: #fff; border: 1px solid #fffbe6; min-height: 150px;"></textarea>
-                        <div class="invalid-feedback">A message is required.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Submission Messages -->
-            <div id="submitSuccessMessage" class="d-none text-center text-white mb-3">
-                <div class="fw-bolder">Form submission successful!</div>
-            </div>
-            <div id="submitErrorMessage" class="d-none text-center text-danger mb-3">
-                Error sending message!
-            </div>
-
-            <!-- Submit Button -->
-            <div class="text-center">
-                <button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit" disabled style="background: #2ac6a7; border-radius: 20px; border: none; font-weight: bold;">
-                    Send Message
-                </button>
-            </div>
-        </form>
+    <!-- Success Message -->
+    <div id="submitSuccessMessage" style="display: none; text-align: center; color: white; margin-bottom: 20px;">
+      <div style="font-weight: bold;">Thank you! Your message has been sent.</div>
     </div>
+
+    <!-- Error Message -->
+    <div id="submitErrorMessage" style="display: none; text-align: center; color: red; margin-bottom: 20px;">
+      <div style="font-weight: bold;">Error sending message! Please try again.</div>
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contactForm" action="https://formspree.io/f/mgvzorlg" method="POST" style="width: 100%;">
+      <div class="row align-items-stretch mb-5 text-start">
+        <!-- Left Column Inputs -->
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <input class="form-control" id="name" name="name" type="text" placeholder="Your Name *" required 
+              style="background: #181818; color: #fff; border: 1px solid #fffbe6;">
+            <div class="invalid-feedback" style="color: red; display: none;">Please enter your name</div>
+          </div>
+          <div class="form-group mb-3">
+            <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *" required 
+              style="background: #181818; color: #fff; border: 1px solid #fffbe6;">
+            <div class="invalid-feedback" style="color: red; display: none;">Please enter a valid email</div>
+          </div>
+          <div class="form-group mb-3">
+            <input class="form-control" id="phone" name="phone" type="tel" placeholder="Your Phone *" required 
+              style="background: #181818; color: #fff; border: 1px solid #fffbe6;">
+            <div class="invalid-feedback" style="color: red; display: none;">Please enter your phone number</div>
+          </div>
+        </div>
+
+        <!-- Right Column Textarea -->
+        <div class="col-md-6">
+          <div class="form-group form-group-textarea mb-0">
+            <textarea class="form-control" id="message" name="message" placeholder="Your Message *" required 
+              style="background: #181818; color: #fff; border: 1px solid #fffbe6; min-height: 150px;"></textarea>
+            <div class="invalid-feedback" style="color: red; display: none;">Please enter a message</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Honeypot field -->
+      <input type="text" name="_gotcha" style="display:none">
+      
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button id="submitButton" class="btn btn-primary btn-xl text-uppercase" type="submit"
+          style="background: #2ac6a7; border-radius: 20px; border: none; font-weight: bold;">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  
+  const submitButton = document.getElementById('submitButton');
+  const inputs = form.querySelectorAll('input[required], textarea[required]');
+  const successMessage = document.getElementById('submitSuccessMessage');
+  const errorMessage = document.getElementById('submitErrorMessage');
+
+  // Validate email format
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // Validate a single field
+  function validateField(input) {
+    if (!input) return false;
+    
+    const errorDiv = input.nextElementSibling;
+    if (!errorDiv || !errorDiv.classList.contains('invalid-feedback')) return false;
+    
+    // Email validation
+    if (input.id === 'email' && input.value && !isValidEmail(input.value)) {
+      input.style.borderColor = 'red';
+      errorDiv.textContent = 'Please enter a valid email address';
+      errorDiv.style.display = 'block';
+      return false;
+    }
+    
+    // Required field validation
+    if (input.required && !input.value.trim()) {
+      input.style.borderColor = 'red';
+      errorDiv.textContent = 'This field is required';
+      errorDiv.style.display = 'block';
+      return false;
+    }
+    
+    // If valid
+    input.style.borderColor = '#fffbe6';
+    errorDiv.style.display = 'none';
+    return true;
+  }
+
+  // Check form validity
+  function checkFormValidity() {
+    let allValid = true;
+    inputs.forEach(input => {
+      if (!validateField(input)) allValid = false;
+    });
+    return allValid;
+  }
+
+  // Update submit button state
+  function updateSubmitButton() {
+    if (!submitButton) return;
+    const isValid = checkFormValidity();
+    submitButton.disabled = !isValid;
+  }
+
+  // Add event listeners
+  inputs.forEach(input => {
+    input.addEventListener('blur', () => {
+      validateField(input);
+      updateSubmitButton();
+    });
+    
+    input.addEventListener('input', () => {
+      if (input.style.borderColor === 'red') validateField(input);
+      updateSubmitButton();
+    });
+  });
+
+  // Form submission
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    if (!checkFormValidity()) return;
+    
+    // Show loading state
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+    }
+    
+    try {
+      // Submit to Formspree
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        // Show success message
+        if (successMessage) {
+          successMessage.style.display = 'block';
+          form.style.display = 'none';
+        }
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      if (errorMessage) errorMessage.style.display = 'block';
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
+    }
+  });
+
+  // Initial validation
+  updateSubmitButton();
+});
+</script>
+
+
   
 <!-- Footer Content as Cards -->
 <footer>
@@ -1746,8 +1877,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="project-placeholder" style="margin-bottom: 12px;">
                                 <strong>Environmental Health App</strong>
                                 <p class="card-text">
-                                    <a href="http://virtualincubation.infinityfreeapp.com/" target="_blank" style="color:#2ac6a7;text-decoration:underline;">
-                                        http://virtualincubation.infinityfreeapp.com/
+                                    <a href="https://environmental-health-wil-frontend.netlify.app/" target="_blank" style="color:#2ac6a7;text-decoration:underline;">
+                                        https://environmental-health-wil-frontend.netlify.app/
                                     </a>
                                 </p>
                             </div>
