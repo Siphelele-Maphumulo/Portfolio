@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </nav>
-            <h1>Project Documentations <span>Jnr. Software Developer</span></h1>
+            <h1>Project Documentations <span>Software Developer</span></h1>
 
         </header>
         <html class="content">
@@ -117,7 +117,18 @@
                         </svg>
 
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title"x>MUT ENVIRONMENTAL HEALTH</h2>
                             <p class="card__subtitle">Work Intergrated Learning System</p>
@@ -126,46 +137,41 @@
                             <div class="meta">
                                 <img class="meta__avatar" src="img/authors/1.png" alt="author01" />
                                 <span class="meta__author">Siphelele Maphumulo </span>
-                                <span class="meta__date">06/19/2021</span>
+                                <span class="meta__date">06/19/2024</span>
                             </div>
-                            <p>South Africa has gained a reputation for being the crime capital of Africa. Various types of crime are committed in South Africa. I was tasked to development of a Pet Tracker System that will assist pet owners to recover lost
-                                / stolen pets.</p>
+                            <p>South Africa faces challenges in managing and tracking student progress in Work Integrated Learning (WIL) programs. Traditional logbooks are often inefficient and prone to loss or errors. I was tasked with the development of a Digital WIL Logbook System — a platform that simplifies, secures, 
+                                and digitizes the recording and approval of student WIL activities.</p>
 
                             <h3 class="slide__title "></h3>
                             <h2 class="slide__desc">
-                                <video class="video" id="video_y1" width="800" height="350" controls>
-                                                  <source src="videos/Pet Store.mp4" type="video/mp4" />
-                                                </video>
+                            <iframe width="853" height="480" src="https://www.youtube.com/embed/CWTrFMLnjPk" title="MUT Environmental health WEB APP" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </h2>
-                            <a href="pdf/Pet.pdf" target="_blank" class="custom-pdf-btn">
+                            <a href="pdf/Environmental_Health_W.I.L_Digital System.pdf" target="_blank" class="custom-pdf-btn">
                                 <i class="fa fa-file-pdf-o" style="font-size:20px;"></i>
                                 <span>View Full Document</span>
                             </a>
-                            <p>Police Statistics have reported an increase in thoroughbred dogs and puppies being stolen and being used in illegal dog fights or being resold on the black market as pets. To curb the increase in theft and abuse of animals,
-                                animal lovers can have their pet microchipped by a veterinarian. A microchip contains a unique ID number that will be used to register and keep 2 track of a pet on the database. The vet will give the pet ID to the owner
-                                for registration of the pet after the microchip has been inserted. Any animal that is stolen and recovered can be scanned by a vet or the SPCA to locate the microchip and its corresponding pet ID. In this way their owner
-                                can be identified, contacted and the pet returned to its owner. The system is not restricted to dogs, cats and other types of pets can also be microchipped and registered as well.
-                            </p>
-                            <b>You are expected to build a desktop application using a database that allows a veterinarian or pet owner to perform the following:</b>
-                            <p>(a) Registration of Pet Owners: When registering pet owners, the system should make sure that no two pet owners have the same ID number. Use the SA ID number which is unique. Information such as name, address and contact details
-                                should be stored for a pet owner. A pet owner should be able to sign up and create a login profile and register as a pet owner when using the system for the first time.</p>
-                            <p>(b) Registration of Pets: pet owners should be able to login and register a new pet that has been microchipped as belonging to him/her. Information for a pet will include details such as type of pet, breed, colour, gender,
-                                date of birth etc. A pet owner can own many pets and may choose to have all their pets registered on the system. The system can keep track of a pet owner and link him to all his registered pets.</p>
-                            <p>(c) Check Pet status: Lost/stolen animals recovered by police or members of the public are taken to the SPCA or local vet to see if they have a microchip. If a microchip is found, the vet will then check the status of the animal,
-                                to see if the pet has been reported as lost/stolen. Vets must be able to determine who the owner is and retrieve his information, so that the pet owner may be contacted and reunited with his pet.</p>
-                            <p>(d) Select/insert/update/delete records : This function should allow a pet owner to view the information of all pets that are registered to him. Allow a pet owner options to register a new pet, update information for an existing
-                                pet, and delete a record for a pet that has died.</p>
-                            <p>(e) Lost/Stolen Pets: For pets that have been reported as lost / stolen, and their status updated to reflect as such. Details of the case should be recorded in a new table. Such information should show pet ID, owner ID, date
-                                of loss/theft, vicinity of loss/theft and status. When a previously reported lost/stolen animal is recovered, update their status to recovered.</p>
-                            <p>(f) Transfer of pet ownership: Sometimes pets may change owners due to a variety of reasons. Allow a pet owner to change the status of his ownership for a specific pet where ownership has been transferred. The system should
-                                keep a history of the transfer of the pet, with details recorded of the previous owner ID, new owner ID, pet ID, date of transfer and reason for transfer. For an existing pet already on the system that has changed owners,
-                                the new owner can login and have an existing pet assigned to him, provided that the sale/transfer is verified through the transfer history.</p>
-                            <p>(g) Please ensure that you identify and create all needed tables for the required functionality. Ensure that you normalise your tables to prevent redundancies and anomalies. You are free to choose between creating MS Access,
-                                SQL Server or an Oracle database. Ensure that you populate your tables with adequate data so as to test your application rigorously and thoroughly
-                            </p>
-                            <p>(h) Please ensure that you provide adequate validation so as to minimise data capture errors and also handle all exceptions, so that your program does not crash</p>
-
-                        </div>
+                                <p>The Department of Environmental Health at MUT has recognized the need for improved record-keeping and verification processes in Work Integrated Learning (WIL) programs. Traditional paper-based logbooks are prone to loss, damage, and inconsistencies, making it difficult to track student progress and validate practical experiences. To address these challenges, we are developing a digital WIL Logbook System that will ensure secure, accurate, and streamlined management of WIL records for students, supervisors, and health authorities (HPCSA).</p>
+                                
+                                <b>You are expected to build a desktop application using a database that allows MUT Environmental Health stakeholders to perform the following:</b>
+                                
+                                <p>(a) <strong>Registration of Students and Supervisors:</strong> When registering, the system must ensure that no two users have the same MUT student number or personnel number. Information such as name, email, contact details, and WIL placement location must be stored. Students and supervisors should be able to create login profiles upon first use.</p>
+                                
+                                <p>(b) <strong>Daily Logbook Entries:</strong> Students must be able to log daily WIL activities, including tasks related to food control, waste management, water quality, environmental monitoring, and other fieldwork. Each log entry should capture the date, description of activity, learning outcome, challenges faced, and hours worked. The system must link all entries to the specific student profile.</p>
+                                
+                                <p>(c) <strong>Supervisor Validation:</strong> Supervisors must be able to review, comment, and digitally sign off on student entries. They should also have the ability to approve or request corrections to submitted logs. Their name, signature, and date of review must be recorded for each approved entry.</p>
+                                
+                                <p>(d) <strong>Select/Insert/Update/Delete Records:</strong> Students should be able to view, update, or delete their entries before final approval. Supervisors and admins should also have access to manage records, ensuring accurate tracking of student progress.</p>
+                                
+                                <p>(e) <strong>Program Completion & HPCSA Verification:</strong> Once a student completes the required number of hours and activities, the system should allow supervisors to stamp and submit the final WIL logbook for HPCSA verification. Health authorities must be able to view submissions, verify details, and add digital approval stamps where applicable.</p>
+                                
+                                <p>(f) <strong>Student Transfers or Placement Changes:</strong> In cases where students change their WIL placement sites or supervisors, the system should support the reassignment of students to new supervisors, with history logs recording changes in placement, reasons, and timestamps.</p>
+                                
+                                <p>(g) <strong>Database Design:</strong> You must design and normalize all required tables to prevent data redundancy and anomalies. You may choose to implement your solution using MS Access, SQL Server, or Oracle. Populate your tables with realistic test data to evaluate your application effectively.</p>
+                                
+                                <p>(h) <strong>Validation and Error Handling:</strong> Implement robust input validation and exception handling throughout the system to minimize data entry errors and prevent system crashes.</p>
+                                
+                                                        </div>
 
                     </div>
                 </div>
@@ -182,7 +188,18 @@
                             <image style="filter: grayscale(10%)"clip-path="url(#clipPath2)" width="1920" height="500" xlink:href="img/housemusickitchen.png"></image>
                         </svg>
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title" style="background-color: rgba(128, 128, 128, 0.466);">House Music Kitchen</h2>
                             <p class="card__subtitle">Music e-Comnmerce Website</p>
@@ -193,30 +210,30 @@
                                 <span class="meta__author">Siphelele Maphumulo</span>
                                 <span class="meta__date">02/30/2022</span>
                             </div>
-                            <p>Angular, Ionic, Capacitor, Firebase and MySQL</p>
+                            <p>This is a professional music platform built to empower local DJs and music producers to upload, manage, and share their tracks online.
+                                This is a platform that features a clean landing page with sections like About, Events, User Guide, and Login/Signup for smooth navigation.</p>
                             <h3 class="slide__title "></h3>
                             <h2 class="slide__desc">
-                                <video class="video" id="video_y1" width="800" height="350" controls>
-                                                  <source src="videos/Pet Store.mp4" type="video/mp4" />
-                                                </video>
+                            <iframe width="851" height="480" src="https://www.youtube.com/embed/XfpHmoPOxRM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </h2>
-                            <p><b>Our app is a E-Hailing taxi services app which intends to manage the taxi business industry and its fleet. Our app will be dedicated to establishing good 
-                                    business relationships between taxi owners, drivers and taxi passengers giving them more value for their money and simplifying terms to hire their services. 
-                                    This includes conveying to passengers’ brief information of a specific taxi, its driver, and its owner.</b></p>
-                            <p>This shall help to uniquely identify each taxi in cases of emergencies, accidents, bad driving, hiring, and reporting. Clients will have to enter a taxi number plate to access information of each taxi.</p>
+                            <a href="pdf/MusicPlatform_SRS.pdf" target="_blank" class="custom-pdf-btn">
+                                <i class="fa fa-file-pdf-o" style="font-size:20px;"></i>
+                                <span>View Full Document</span>
+                            </a>
+                            <p><b>Our app is a digital music platform designed to support local DJs and music producers by giving them the tools to manage, upload, and share their music online. Our platform is dedicated to helping artists reach their audience, streamline the selling process, and grow their music business with confidence and simplicity.</b></p>
 
-                            <p>The app will be suited to operate on any android and Apple devices and opened to any future technology of these devices. Its database is stored in cloud storage. The app is gradually updated as I collect more information of
-                                different taxi associations around South Africa</p>
-                            <p>Our app involves managing the taxi business for taxi owners, passengers, rank managers, associations, and professional taxi drivers. Our aim is to offer the above stated services but will not close doors to diversification
-                                as long as it does not affect our core services</p>
+                            <p>This helps artists showcase their identity and work professionally while allowing listeners to explore tracks, verify artist profiles, and engage directly with creators. Each track includes clear metadata and artist details to ensure transparency and trust.</p>
+                            
+                            <p>The app is fully compatible with both Android and Apple devices and is designed to scale with future technologies. All user and music data is securely backed up in cloud storage using Firebase, and the system is regularly updated to support new features and improve performance.</p>
+                            
+                            <p>Our platform serves DJs, producers, music fans, event organizers, and label owners. While we focus on music uploads, artist promotion, and sales, we remain open to expanding features that align with our core mission of empowering local music creators.</p>
+                            
                             <p><b>Instructions</b></p>
-                            <p>You have been requested to create a mobile application that will authenticate users using their email address and password. Use firebase for authentication.</p>
-                            <p>Navigate to the login page when the start button is clicked. You can either use a slide or a simple welcome page</p>
-                            <p>✓ Save and authenticate the email and password using firebase. <br>✓ Name, Surname and Username are not to be validated or saved. They are there for design purposes. <br>✓ Display an appropriate error message if email address
-                                and password have not been entered <br>✓ If the user has entered correct details, display the message “You have successfully logged in”. <br>✓ Navigate to the appropriate pages when other links are clicked.</p>
-                            <p>✓ Login using the email address and password credentials stored on firebase. <br>✓ Display an appropriate error massage if no values have been entered or if values entered do not exist. <br>✓ Display an appropriate error messageSend
-                                a verification email message to a successfully registered user . <br>✓ Ensure that the user enters both email and password. <br>✓ Display an appropriate error message if both email address and password have not been entered.
-                            </p>
+                            <p>You have been requested to create a mobile application that will authenticate users using their email address and password. Use Firebase for authentication.</p>
+                            <p>Navigate to the login page when the start button is clicked. You can either use a slide or a simple welcome page.</p>
+                            <p>✓ Save and authenticate the email and password using Firebase. <br>✓ Name, Surname, and Username are for UI display only and are not stored. <br>✓ Display an appropriate error message if the email address or password is missing. <br>✓ If the user provides valid credentials, display the message “You have successfully logged in.” <br>✓ Navigate to appropriate pages when other links are clicked.</p>
+                            <p>✓ Authenticate login using the stored email and password in Firebase. <br>✓ Show clear error messages if values are missing or incorrect. <br>✓ Send a verification email to successfully registered users. <br>✓ Ensure both email and password are mandatory. <br>✓ Display accurate error messages if either field is missing.</p>
+
                         </div>
                     </div>
                 </div>
@@ -233,7 +250,18 @@
                             <image style="filter: grayscale(0%)" clip-path="url(#clipPath3)" width="1920" height="500" xlink:href="img/incubation.png"></image>
                         </svg>
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title" style="background-color: rgba(128, 128, 128, 0.466);">SMME's Virtual Incubation</h2>
                             <p class="card__subtitle">Virtual Incubation Web Application</p>
@@ -244,82 +272,73 @@
                                 <span class="meta__author">Siphelele Maphumulo</span>
                                 <span class="meta__date">02/30/2022</span>
                             </div>
-                            <p>Angular, Ionic, Capacitor, Firebase and MySQL</p>
+                            <p>This project is part of an exciting transition journey from a WordPress-based setup to a fully custom-built HTML web application, developed during my internship. The result is SMMEs Virtual Incubation, 
+                            a platform designed to empower Small, Medium, and Micro Enterprises (SMMEs) in their business development journey.</p>
                             <h3 class="slide__title "></h3>
                             <h2 class="slide__desc">
-                                <video class="video" id="video_y1" width="800" height="350" controls>
-                                        <source src="videos/Pet Store.mp4" type="video/mp4" />
+                            <iframe width="853" height="480" src="https://www.youtube.com/embed/xWFWsxdDB2w" title="Virtual Incubation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 </video>
                             </h2>
-                            <p><b>I was requested to create a mobile application that allows customers of a hardware store to make purchases online.</b></p>
-                            <p>To make orders, customers must be registered and authenticated using their email and password. Firebase will be used to register users, verify their email addresses, and store their information in a MySQL database. The registration
-                                page information provided must be added to both Firebase and MySQL.The objective is to create a user-friendly mobile application that streamlines the online shopping experience for the hardware store's customers.</p>
-
+                            <p><b>I was requested to create a mobile web application that supports entrepreneurs and SMMEs (Small, Medium, and Micro Enterprises) in registering and growing their businesses digitally.</b></p>
+                            <p>To access key features of the platform, users must register and authenticate using their email and password. Firebase is used to handle user authentication, email verification, and secure access, while business information is stored in a MySQL database. The registration details must be saved in both Firebase and MySQL. The goal is to deliver a user-friendly platform that simplifies business registration, funding applications, and digital branding services for aspiring entrepreneurs.</p>
+                            
                             <p><b>Client Requirements</b></p>
-                            <p><b>Siyeshe holdings in small hardware that sells building material. The hardware store has requested you 
-                                to create a mobile application that's allows it customers to make purchases online. Follow the 
-                                instructions below will assist you in creating the application.</b></p>
-                            <p>Create a Database called Inventory using MySQL with the following tables given below:</p>
-                            <table style="width: 30%;">
+                            <p><b>Siyeshe Holdings has requested the development of an incubation-focused mobile platform called "SMMEs Virtual Incubation." This system will empower small business owners by offering tools to register businesses, complete forms, apply for funding, and enhance their online presence. Follow the instructions below to guide the application development process.</b></p>
+                            
+                            <p>Create a database called <b>Incubation</b> using MySQL with the following tables defined to support user profiles, business registration data, funding applications, and service requests.</p>
+
+                            <table style="width: 60%; border-collapse: collapse;" border="1">
                                 <tr>
-                                    <th>Customers</th>
-                                    <th>Category</th>
-                                    <th>Products</th>
-                                    <th>Orders</th>
+                                    <th>Users</th>
+                                    <th>Business</th>
+                                    <th>Funding Applications</th>
+                                    <th>Branding Requests</th>
                                 </tr>
                                 <tr>
-                                    <td>CustID</td>
-                                    <td>catID</td>
-                                    <td>prodID</td>
-                                    <td>orderID</td>
+                                    <td>userID</td>
+                                    <td>businessID</td>
+                                    <td>applicationID</td>
+                                    <td>brandingID</td>
                                 </tr>
                                 <tr>
                                     <td>name</td>
-                                    <td>catDescreption</td>
-                                    <td>catID</td>
-                                    <td>prodID</td>
+                                    <td>businessName</td>
+                                    <td>businessID</td>
+                                    <td>businessID</td>
                                 </tr>
                                 <tr>
                                     <td>surname</td>
-                                    <td></td>
-                                    <td>prodDescreption</td>
-                                    <td>custID</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>username</td>
-                                    <td></td>
-                                    <td>price</td>
-                                    <td>cost</td>
+                                    <td>registrationNumber</td>
+                                    <td>fundingType</td>
+                                    <td>logoDesign</td>
                                 </tr>
                                 <tr>
                                     <td>email</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>date</td>
+                                    <td>sector</td>
+                                    <td>status</td>
+                                    <td>websitePackage</td>
                                 </tr>
                                 <tr>
                                     <td>contact</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-
+                                    <td>location</td>
+                                    <td>amountRequested</td>
+                                    <td>brandingStatus</td>
                                 </tr>
-
                             </table>
+                            
+                            <p>You have been requested to create a mobile application that allows entrepreneurs to register and manage their businesses through the SMMEs Virtual Incubation platform. Firebase should be used to authenticate users via their email and password.</p>
+                            <p>When the start button is clicked, navigate to the login page (this could be a sliding screen or a simple welcome page).</p>
+                            
+                            <br>✓ Save and authenticate the email and password using Firebase.
+                            <br>✓ Name, Surname, and Username are for display only and should not be stored.
+                            <br>✓ Show an appropriate error message if the email or password is missing.
+                            <br>✓ On successful login, display “You have successfully logged in.”
+                            <br>✓ Ensure correct navigation when users click on other page links.
+                            <br>✓ Authenticate login using credentials stored in Firebase.
+                            <br>✓ Display clear error messages for invalid or missing values.
+                            <br>✓ Send a verification email to users who register successfully.
+                            <br>✓ Both email and password fields must be filled in before submission.
 
-                            <p>You have been requested to create a mobile application that will authenticate users using their email address and password. Use firebase for authentication.</p>
-                            <p>Navigate to the login page when the start button is clicked. You can either use a slide or a simple welcome page</p>
-                            <br>✓ Save and authenticate the email and password using firebase.
-                            <br>✓ Name, Surname and Username are not to be validated or saved. They are there for design purposes.
-                            <br>✓ Display an appropriate error message if email address and password have not been entered <br>✓ If the user has entered correct details, display the message “You have successfully logged in”. <br>✓ Navigate to the appropriate
-                            pages when other links are clicked.
-                            <br>✓ Login using the email address and password credentials stored on firebase.
-                            <br>✓ Display an appropriate error massage if no values have been entered or if values entered do not exist.
-                            <br>✓ Display an appropriate error messageSend a verification email message to a successfully registered user .
-                            <br>✓ Ensure that the user enters both email and password.
-                            <br>✓ Display an appropriate error message if both email address and password have not been entered.
 
                         </div>
                     </div>
@@ -342,7 +361,18 @@
                         </svg>
 
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title" style="background-color: rgba(128, 128, 128, 0.466);">Rehab Center</h2>
                             <p class="card__subtitle">Rehabilitation Website</p>
@@ -407,7 +437,18 @@
                             <image style="filter: grayscale(10%)"clip-path="url(#clipPath5)" width="1920" height="500" xlink:href="img/Blackboard.png"></image>
                         </svg>
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title" style="background-color: rgba(128, 128, 128, 0.466);">MUT Blackboard</h2>
                             <p class="card__subtitle">MUT LMS Web Application</p>
@@ -458,7 +499,18 @@
                             <image style="filter: grayscale(0%)" clip-path="url(#clipPath6)" width="1920" height="500" xlink:href="img/stocktaking.jpg"></image>
                         </svg>
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title" style="background-color: rgba(128, 128, 128, 0.466);">Best Brightness</h2>
                             <p class="card__subtitle">Stock Taking Windows Application</p>
@@ -567,7 +619,18 @@
                         </svg>
 
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title">The Pet Store</h2>
                             <p class="card__subtitle">Pet Veterinarian Tracking System</p>
@@ -632,7 +695,18 @@
                             <image style="filter: grayscale(10%)"clip-path="url(#clipPath8)" width="1920" height="500" xlink:href="img/b(2).jpg"></image>
                         </svg>
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title">Taxi App</h2>
                             <p class="card__subtitle">E-hailing Taxi Mobile App</p>
@@ -683,7 +757,18 @@
                             <image style="filter: grayscale(0%)" clip-path="url(#clipPath9)" width="1920" height="500" xlink:href="img/cc.jpg"></image>
                         </svg>
                     <div class="card__content">
-                        <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                         <div class="card__caption">
                             <h2 class="card__title">Hardware App</h2>
                             <p class="card__subtitle">Hardware Store App</p>
@@ -790,7 +875,18 @@
                             <image style="filter: grayscale(0%)" clip-path="url(#clipPath10)" width="1920" height="500" xlink:href="img/e.jpg"></image>
                         </svg>
                 <div class="card__content">
-                    <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                     <div class="card__caption">
                         <h2 class="card__title"  style="background-color: rgba(128, 128, 128, 0.466);">E-Learning</h2>
                         <p class="card__subtitle" style="background-color: rgba(128, 128, 128, 0.466);">Online Learning System</p>
@@ -848,7 +944,18 @@
                             <image style="filter: grayscale(0%)" clip-path="url(#clipPath11)" width="1920" height="500" xlink:href="img/f.jpg"></image>
                         </svg>
                 <div class="card__content">
-                    <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                     <div class="card__caption">
                         <h2 class="card__title" style="background-color: rgba(128, 128, 128, 0.466);">Dice Game</h2>
                         <p class="card__subtitle" style="background-color: rgba(128, 128, 128, 0.466);">Game Application</p>
@@ -894,7 +1001,18 @@
                             <image style="filter: grayscale(0%)" clip-path="url(#clipPath12)" width="1920" height="500" xlink:href="img/kfc.jpg"></image>
                         </svg>
                 <div class="card__content">
-                    <i class="card__btn-close fa fa-times"></i>
+                        <i class="card__btn-close fa fa-times" style="color:red;
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          background-color: transparent;
+                          border: none;
+                          font-size: 24px;
+                          color: #c62828;
+                          cursor: pointer;
+                          transition: color 0.3s ease, transform 0.2s ease;
+                          z-index: 1000;"
+                        ></i>
                     <div class="card__caption">
                         <h2 class="card__title">Post-of-Sales</h2>
                         <p class="card__subtitle">Any store post of sales system</p>
