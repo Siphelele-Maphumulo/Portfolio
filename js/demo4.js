@@ -1,5 +1,5 @@
 /**
- * demo2.js
+ * original2.js
  * http://www.codrops.com
  *
  * Licensed under the MIT license.
